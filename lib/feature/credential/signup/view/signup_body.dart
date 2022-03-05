@@ -10,6 +10,8 @@ class SignUpBody extends StatefulWidget {
 class _SignUpBodyState extends State<SignUpBody> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(
+      child: Text("SIGN UP BODY"),
+    );
   }
 }

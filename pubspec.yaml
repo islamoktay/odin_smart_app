@@ -27,6 +27,6 @@ dev_dependencies:
 
 flutter:
   assets:
-    - assets/langs/
+    - assets/lang/
 
   uses-material-design: true

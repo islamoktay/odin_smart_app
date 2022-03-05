@@ -1,7 +1,6 @@
 // ignore: implementation_imports
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:odin_smart_app/core/_core_exports.dart';
 
 class MyApp extends StatefulWidget {
@@ -16,17 +15,15 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: multiBlocProvider,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Odin Smart App',
-        theme: appThemeData[AppTheme.PrimaryTheme],
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        onGenerateRoute: _appRouter.onGenerateRoute,
-      ),
+    return MaterialApp(
+      navigatorKey: GlobalContextKey.instance.globalKey,
+      debugShowCheckedModeBanner: false,
+      title: 'Odin Smart App',
+      theme: appThemeData[AppTheme.PrimaryTheme],
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      onGenerateRoute: _appRouter.onGenerateRoute,
     );
   }
 }
