@@ -15,4 +15,5 @@ Future<void> main() async {
 Future<void> buildInit() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await EasyLocalization.ensureInitialized();
 }
