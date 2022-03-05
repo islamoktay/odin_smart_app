@@ -1,3 +1,5 @@
+// ignore: implementation_imports
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:odin_smart_app/core/_core_exports.dart';
 
