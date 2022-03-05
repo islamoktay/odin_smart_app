@@ -2,4 +2,7 @@
 
 class RouteConstant {
   static const SPLASH_VIEW = '/';
+  static const LOGIN_VIEW = '/loginView';
+  static const SIGNUP_VIEW = '/signupView';
+  static const HOME_PAGE_VIEW = '/homePageView';
 }
