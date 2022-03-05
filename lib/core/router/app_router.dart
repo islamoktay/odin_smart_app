@@ -8,12 +8,10 @@ class AppRouter {
     switch (routeSettings.name) {
       case RouteConstant.SPLASH_VIEW:
         return CupertinoPageRoute(builder: (_) => const SplashPage());
-      case RouteConstant.LOGIN_VIEW:
-        return CupertinoPageRoute(builder: (_) => const LoginPage());
       case RouteConstant.HOME_PAGE_VIEW:
         return CupertinoPageRoute(builder: (_) => const HomePage());
-      case RouteConstant.SIGNUP_VIEW:
-        return CupertinoPageRoute(builder: (_) => const SignUpPage());
+      case RouteConstant.CREDENTIAL_VIEW:
+        return CupertinoPageRoute(builder: (_) => const CredentialPage());
       default:
         return null;
     }

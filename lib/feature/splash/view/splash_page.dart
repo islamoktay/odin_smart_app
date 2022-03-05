@@ -14,7 +14,7 @@ class SplashPage extends StatefulWidget {
 void initState() async {
   await buildInit();
   Future.delayed(const Duration(milliseconds: 5600))
-      .then((value) => Go.to.page(RouteConstant.SPLASH_VIEW));
+      .then((value) => Go.to.page(RouteConstant.CREDENTIAL_VIEW));
 }
 
 class _SplashPageState extends State<SplashPage> {
