@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "405560161111",
+    "firebase_url": "https://odin-smart-app-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "odin-smart-app",
+    "storage_bucket": "odin-smart-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405560161111:android:d64203ee940e7a74eac412",
+        "android_client_info": {
+          "package_name": "com.example.odin_smart_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405560161111-o9htvrt490u7vggg07upssailj1o1mgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdPZoyi_c5FcjOn_TgpzMV_n5z9vNF_a4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405560161111-o9htvrt490u7vggg07upssailj1o1mgu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "405560161111-vkd1j3aunq20janndnpuictova4tmt2p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.odinSmartApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
