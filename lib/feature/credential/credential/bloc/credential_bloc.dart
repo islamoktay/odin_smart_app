@@ -6,8 +6,6 @@ part 'credential_state.dart';
 
 class CredentialBloc extends Bloc<CredentialEvent, CredentialState> {
   CredentialBloc() : super(CredentialInitial()) {
-    on<CredentialEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<CredentialEvent>((event, emit) {});
   }
 }

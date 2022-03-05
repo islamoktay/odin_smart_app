@@ -28,7 +28,8 @@ class AppTextFormField extends StatelessWidget {
   final bool? autoFocus;
   final AutovalidateMode? autovalidateMode;
 
-  AppTextFormField({
+  // ignore: use_key_in_widget_constructors
+  const AppTextFormField({
     Key? key,
     this.hintText,
     this.onTap,
@@ -49,10 +50,10 @@ class AppTextFormField extends StatelessWidget {
     this.verticalPadding,
     this.textLimit,
     this.focusNode,
-    this.radius: 8,
+    this.radius = 8,
     this.toolbarOptions = const ToolbarOptions(
         cut: true, copy: true, selectAll: true, paste: true),
-    this.autoFocus: false,
+    this.autoFocus = false,
     this.autovalidateMode,
   });
 

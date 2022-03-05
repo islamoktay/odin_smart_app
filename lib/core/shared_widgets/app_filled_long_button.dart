@@ -26,7 +26,7 @@ class AppFilledLongButton extends StatelessWidget {
       child: Text(
         buttonText,
         style: AppTextStyles.bodyTextStyle.copyWith(
-          color: textColor ?? AppColors.redColor,
+          color: textColor ?? Colors.black,
           letterSpacing: 1.0,
         ),
       ),
