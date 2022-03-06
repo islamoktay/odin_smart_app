@@ -1,6 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// ignore_for_file: constant_identifier_names
 
-// ignore: constant_identifier_names
+import '../../_package_exports.dart';
+
 enum AuthEnums { SING_IN, SIGN_UP, SIGN_OUT, ERROR }
 
 class AuthenticationService {

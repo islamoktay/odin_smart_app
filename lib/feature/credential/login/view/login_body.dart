@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:odin_smart_app/core/_core_exports.dart';
-
+import 'package:odin_smart_app/core/_package_exports.dart';
 import '../../../_feature_exports.dart';
 
 class LoginBody extends StatefulWidget {
@@ -24,14 +23,19 @@ class _LoginBodyState extends State<LoginBody> {
         return Column(
           children: [
             AppTextFormField(
+              hintText: "Username",
               controller: context.watch<LoginCubit>().emailController,
             ),
             const SizedBox(height: 20),
             AppTextFormField(
+              isObscure: true,
+              hintText: "Password",
               controller: context.watch<LoginCubit>().passwordController,
             ),
             const SizedBox(height: 20),
             AppFilledButton(
+                buttonColor: AppColors.secondaryColor,
+                textColor: Colors.white,
                 onPressed: () => context.read<LoginCubit>().login(),
                 buttonText: "LOGIN")
           ],

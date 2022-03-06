@@ -1,8 +1,6 @@
-// ignore: implementation_imports
-import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:odin_smart_app/core/_core_exports.dart';
+import 'package:odin_smart_app/core/_package_exports.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);

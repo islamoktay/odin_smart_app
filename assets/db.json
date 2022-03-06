@@ -1,0 +1,24 @@
+{
+    "remote_controller": {
+        "tv_channel": "HBO",
+        "tv_program": "Game Of Thrones",
+        "netflix": false,
+        "youtube": false,
+        "home": false,
+        "exit": false,
+        "back": false,
+        "numpad_input": "",
+        "offset": {
+            "x": 0.0,
+            "y": 0.0
+        },
+        "ok": false,
+        "up": false,
+        "down": false,
+        "left": false,
+        "right": false
+    },
+    "ahmet": {
+        "ahmet_is": "ahmet"
+    }
+}

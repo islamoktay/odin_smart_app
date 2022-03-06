@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:odin_smart_app/core/_core_exports.dart';
+
+import '../../../../core/_package_exports.dart';
 
 class LoginCubit extends Cubit<GenericState> {
   LoginCubit() : super(GenericInitial());

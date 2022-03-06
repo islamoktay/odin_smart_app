@@ -60,7 +60,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: horizontalPadding ?? 10),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding ?? 0),
       child: TextFormField(
         inputFormatters: [
           LengthLimitingTextInputFormatter(textLimit),
@@ -75,33 +75,31 @@ class AppTextFormField extends StatelessWidget {
               textLimit == null ? "" : "${controller!.text.length}/$textLimit",
           isDense: true,
           hintText: hintText,
-          hintStyle: AppTextStyles.bodyTextStyle.copyWith(
-            color: Colors.grey,
-          ),
+          hintStyle: AppTextStyles.bodySmallTextStyleBlack,
           labelText: labelText,
           contentPadding: EdgeInsets.symmetric(
             vertical: verticalPadding ?? 10,
             horizontal: 12,
           ),
-          labelStyle: AppTextStyles.bodyTextStyle.copyWith(
+          labelStyle: AppTextStyles.bodyTextStyleWhite.copyWith(
             color: Colors.grey,
           ),
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(radius!)),
+            borderRadius: BorderRadius.all(Radius.circular(radius ?? 2)),
             borderSide: const BorderSide(
               color: Colors.grey,
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(radius!)),
+            borderRadius: BorderRadius.all(Radius.circular(radius ?? 2)),
             borderSide: const BorderSide(color: Colors.grey, width: 1.6),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(radius!)),
+            borderRadius: BorderRadius.all(Radius.circular(radius ?? 2)),
             borderSide: const BorderSide(
-              color: AppColors.redColor,
+              color: AppColors.appBarColor,
             ),
           ),
           prefixIcon: icon,

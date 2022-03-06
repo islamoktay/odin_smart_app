@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:odin_smart_app/core/_core_exports.dart';
+
+import '../../../core/_core_exports.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 5600)).then(
+    Future.delayed(const Duration(milliseconds: 1600)).then(
       (value) {
         Go.to.page(RouteConstant.CREDENTIAL_VIEW);
       },
@@ -21,9 +22,16 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text("Splash view"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(ImageConstants.iconLogo),
+            const SizedBox(height: 30),
+            Image.asset(ImageConstants.textLogo),
+          ],
+        ),
       ),
     );
   }
