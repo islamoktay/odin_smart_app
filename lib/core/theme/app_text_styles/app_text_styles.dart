@@ -55,4 +55,10 @@ class AppTextStyles {
     color: Colors.black,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle menuContainerBigStyle = GoogleFonts.roboto(
+    decoration: TextDecoration.none,
+    fontSize: 30.0,
+    color: Colors.white,
+    fontWeight: FontWeight.w400,
+  );
 }

@@ -30,23 +30,28 @@ class _RemoteControllerBodyState extends State<RemoteControllerBody> {
         if (state is GenericInitial) {
           return Container(color: Colors.red);
         } else if (state is GenericLoading) {
-          return const CircularProgressIndicator();
+          return const GridMenuCustomContainer(
+              menuName: "TV",
+              upperMenuWidget:
+                  CircularProgressIndicator(color: AppColors.purpleColor));
         } else if (state is GenericCompletedItem) {
-          return Container(
-            height: 150,
-            width: 150,
-            color: AppColors.secondaryColor,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+          return GridMenuCustomContainer(
+            menuName: "TV",
+            upperMenuWidget: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("Now Playing..."),
+                Text(
+                  "Now Playing...",
+                  style: AppTextStyles.bodyTextStyleWhite,
+                ),
+                Text(
+                  state.response.tvChannel,
+                  style: AppTextStyles.bodyTextStyleWhite,
+                ),
                 Text(
                   state.response.tvProgram,
                   style: AppTextStyles.bodyTextStyleWhite,
                 ),
-                const Text("Now Playing..."),
-                const Divider(),
-                const Text("TV"),
               ],
             ),
           );
