@@ -1,1 +1,2 @@
-export 'view/_view_exports.dart';
+export 'home_page/_home_page_exports.dart';
+export 'remote_controller/_remote_controller_exports.dart';

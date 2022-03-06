@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/_core_exports.dart';
+import '../../../../core/_package_exports.dart';
 import '../../../_feature_exports.dart';
 
 class SignUpBody extends StatefulWidget {
@@ -24,14 +23,17 @@ class _SignUpBodyState extends State<SignUpBody> {
         return Column(
           children: [
             AppTextFormField(
+              hintText: "Username",
               controller: context.watch<SignUpCubit>().emailController,
             ),
             const SizedBox(height: 20),
             AppTextFormField(
+              hintText: "Password",
               controller: context.watch<SignUpCubit>().passwordControllerOne,
             ),
             const SizedBox(height: 20),
             AppTextFormField(
+              hintText: "Password Again",
               controller: context.watch<SignUpCubit>().passwordControllerTwo,
             ),
             const SizedBox(height: 20),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:odin_smart_app/feature/credential/_credential_exports.dart';
+
+import '../../../../core/_core_exports.dart';
+import '../../../_feature_exports.dart';
 
 class CredentialPage extends StatefulWidget {
   const CredentialPage({Key? key}) : super(key: key);
@@ -22,37 +24,44 @@ class _CredentialPageState extends State<CredentialPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("ODIN APP"),
-      ),
-      body: SizedBox(
-        height: 300,
+      body: Padding(
+        padding: PaddingConstants.generalPagePadding,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.min,
           children: [
+            const SizedBox(height: 30),
+            SizedBox(
+              height: 200,
+              width: 200,
+              child: Image.asset(ImageConstants.iconLogo),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+                height: 84,
+                width: 194,
+                child: Image.asset(ImageConstants.textLogo)),
+            const SizedBox(height: 10),
             SizedBox(
               height: 50,
               child: TabBar(
                 controller: _tabController,
-                indicator: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                unselectedLabelColor: Colors.black,
-                labelColor: Colors.white,
+                unselectedLabelColor: AppColors.purpleColor,
+                labelColor: AppColors.secondaryColor,
+                labelStyle: AppTextStyles.bodyTextStyleWhite,
                 tabs: const [
                   Tab(
                     text: "Login",
                   ),
                   Tab(
-                    text: "Sing Up",
+                    text: "Sign Up",
                   ),
                 ],
               ),
             ),
+            const SizedBox(height: 20),
             SizedBox(
-              height: 200,
+              height: 300,
               child: TabBarView(
                 controller: _tabController,
                 children: const [LoginBody(), SignUpBody()],

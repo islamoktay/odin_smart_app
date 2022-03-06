@@ -25,14 +25,14 @@ class AppFilledButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         buttonText,
-        style: AppTextStyles.bodyTextStyle.copyWith(
-          color: textColor ?? Colors.black,
+        style: AppTextStyles.bodyTextStyleWhite.copyWith(
+          color: textColor ?? Colors.white,
           letterSpacing: 1.0,
         ),
       ),
       style: ElevatedButton.styleFrom(
-        fixedSize: const Size(100, 50),
-        primary: buttonColor ?? AppColors.orangeColor,
+        fixedSize: const Size(150, 50),
+        primary: buttonColor ?? AppColors.purpleColor,
         onPrimary: Colors.white,
         side: BorderSide(
           width: .8,

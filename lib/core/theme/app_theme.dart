@@ -10,9 +10,9 @@ enum AppTheme {
 
 final appThemeData = {
   AppTheme.PrimaryTheme: ThemeData(
-    primaryColor: AppColors.primaryColor,
-    backgroundColor: Colors.white,
-    appBarTheme: const AppBarTheme(backgroundColor: AppColors.appBarColor),
+    primaryColor: Colors.red,
+    backgroundColor: Colors.blue,
+    appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
     scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
   ),
 };
