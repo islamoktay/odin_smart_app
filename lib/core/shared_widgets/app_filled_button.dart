@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../_core_exports.dart';
 
-class AppFilledLongButton extends StatelessWidget {
+class AppFilledButton extends StatelessWidget {
   final void Function()? onPressed;
   final String buttonText;
   final Color? shadowColor;
   final Color? buttonColor;
   final Color? borderColor;
   final Color? textColor;
-  const AppFilledLongButton({
+  const AppFilledButton({
     Key? key,
     required this.onPressed,
     required this.buttonText,
