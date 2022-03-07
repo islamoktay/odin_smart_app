@@ -10,4 +10,6 @@ List<BlocProvider> multiBlocProvider = [
   BlocProvider<RemoteControllerCubit>(
       create: ((_) =>
           RemoteControllerCubit(SampleRemoteControllerRepository()))),
+  BlocProvider<LightsCubit>(
+      create: ((_) => LightsCubit(SampleLightsRepository()))),
 ];

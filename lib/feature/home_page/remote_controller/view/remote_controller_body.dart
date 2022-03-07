@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../core/_core_exports.dart';
 import '../../../../core/_package_exports.dart';
 import '../../../_feature_exports.dart';
@@ -51,6 +50,7 @@ class _RemoteControllerBodyState extends State<RemoteControllerBody> {
                 Text(
                   state.response.tvProgram,
                   style: AppTextStyles.bodyTextStyleWhite,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
