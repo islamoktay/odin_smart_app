@@ -12,9 +12,9 @@ class AppColors {
   static const Color sliderColor = Color(0xFFE2E9EF);
   static const Color iconColor = Color(0xFF837F7F);
   static const Color cursorColor = Color(0xFF6D6F7B);
-  static const Color unSelectedpackageDeliveryColor = Color(0xFFBCBCBC);
 
 //!--------
+  static const Color darkGrey = Color(0xFF717070);
   static const Color secondaryColor = Color(0xFF259DBC);
   static const Color textColor = Color(0xFFFFFFFF);
   static const Color scaffoldBackgroundColor = Color(0xFFE4E4E4);

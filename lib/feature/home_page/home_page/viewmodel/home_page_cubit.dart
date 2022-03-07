@@ -8,7 +8,7 @@ class HomePageCubit extends Cubit<GenericState> {
   HomePageCubit() : super(GenericInitial());
   List<Widget> homePageGridBodyList = [
     const RemoteControllerBody(),
-    const RemoteControllerBody(),
+    const LightsBody(),
     const RemoteControllerBody(),
     const RemoteControllerBody(),
     const RemoteControllerBody(),

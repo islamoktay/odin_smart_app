@@ -18,7 +18,52 @@
         "left": false,
         "right": false
     },
-    "ahmet": {
-        "ahmet_is": "ahmet"
+    "lights": {
+        "light_bulbs": [
+            {
+                "name": "Light 1",
+                "isOpen": false,
+                "levelOfOpen": 0,
+                "openTime": "2022-03-07T18:00:00+03:00",
+                "closeTime": "2022-03-07T18:00:00+03:00"
+            },
+            {
+                "name": "Light 2",
+                "isOpen": false,
+                "levelOfOpen": 0,
+                "openTime": "2022-03-07T18:00:00+03:00",
+                "closeTime": "2022-03-07T18:00:00+03:00"
+            },
+            {
+                "name": "Light 3",
+                "isOpen": false,
+                "levelOfOpen": 0,
+                "openTime": "2022-03-07T18:00:00+03:00",
+                "closeTime": "2022-03-07T18:00:00+03:00"
+            }
+        ],
+        "curtains": [
+            {
+                "name": "Curtain 1",
+                "isOpen": false,
+                "levelOfOpen": 0,
+                "openTime": "2022-03-07T18:00:00+03:00",
+                "closeTime": "2022-03-07T18:00:00+03:00"
+            },
+            {
+                "name": "Curtain 2",
+                "isOpen": false,
+                "levelOfOpen": 0,
+                "openTime": "2022-03-07T18:00:00+03:00",
+                "closeTime": "2022-03-07T18:00:00+03:00"
+            },
+            {
+                "name": "Curtain 3",
+                "isOpen": false,
+                "levelOfOpen": 0,
+                "openTime": "2022-03-07T18:00:00+03:00",
+                "closeTime": "2022-03-07T18:00:00+03:00"
+            }
+        ]
     }
 }
