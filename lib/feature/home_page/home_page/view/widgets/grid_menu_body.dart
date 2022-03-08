@@ -20,6 +20,7 @@ class _GridMenuBodyState extends State<GridMenuBody> {
         return Padding(
           padding: PaddingConstants.generalPagePadding,
           child: GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: 6,
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

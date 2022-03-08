@@ -12,25 +12,17 @@ class WeatherDataBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          AppTextWidget(
             "City : ${state.response.location.name}",
-            style: AppTextStyles.bodyTextStyleWhite,
-            overflow: TextOverflow.ellipsis,
           ),
-          Text(
+          AppTextWidget(
             "Country : ${state.response.location.country}",
-            style: AppTextStyles.bodyTextStyleWhite,
-            overflow: TextOverflow.ellipsis,
           ),
-          Text(
+          AppTextWidget(
             "Degree : ${state.response.current.tempC.toString()} °C",
-            style: AppTextStyles.bodyTextStyleWhite,
-            overflow: TextOverflow.ellipsis,
           ),
-          Text(
+          AppTextWidget(
             "Feels : ${state.response.current.feelslikeC.toString()} °C",
-            style: AppTextStyles.bodyTextStyleWhite,
-            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),

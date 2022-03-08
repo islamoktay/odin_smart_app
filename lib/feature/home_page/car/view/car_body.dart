@@ -35,10 +35,13 @@ class _CarBodyState extends State<CarBody> {
               ));
         } else if (state is GenericLoading) {
           return const GridMenuCustomContainer(
-              menuName: "CAR",
-              upperMenuWidget: Center(
-                  child:
-                      CircularProgressIndicator(color: AppColors.purpleColor)));
+            menuName: "CAR",
+            upperMenuWidget: Center(
+              child: CircularProgressIndicator(
+                color: AppColors.purpleColor,
+              ),
+            ),
+          );
         } else if (state is GenericCompletedItem<CarModel>) {
           return GridMenuCustomContainer(
             menuName: "CAR",

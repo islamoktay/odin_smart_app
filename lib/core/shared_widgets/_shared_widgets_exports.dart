@@ -6,3 +6,4 @@ export 'custom_app_bar.dart';
 export 'back_button_icon.dart';
 export 'custom_scaffold.dart';
 export 'grid_menu_custom_container.dart';
+export 'app_text.dart';

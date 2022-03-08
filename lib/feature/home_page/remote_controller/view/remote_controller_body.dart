@@ -40,18 +40,14 @@ class _RemoteControllerBodyState extends State<RemoteControllerBody> {
             upperMenuWidget: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const AppTextWidget(
                   "Now Playing...",
-                  style: AppTextStyles.bodyTextStyleWhite,
                 ),
-                Text(
+                AppTextWidget(
                   state.response.tvChannel,
-                  style: AppTextStyles.bodyTextStyleWhite,
                 ),
-                Text(
+                AppTextWidget(
                   state.response.tvProgram,
-                  style: AppTextStyles.bodyTextStyleWhite,
-                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),

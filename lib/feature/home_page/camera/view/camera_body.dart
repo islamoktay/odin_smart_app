@@ -3,47 +3,45 @@ import '../../../../core/_core_exports.dart';
 import '../../../../core/_package_exports.dart';
 import '../../../_feature_exports.dart';
 
-class LightsBody extends StatefulWidget {
-  const LightsBody({Key? key}) : super(key: key);
+class CameraBody extends StatefulWidget {
+  const CameraBody({Key? key}) : super(key: key);
 
   @override
-  State<LightsBody> createState() => _LightsBodyState();
+  State<CameraBody> createState() => _CameraBodyState();
 }
 
-class _LightsBodyState extends State<LightsBody> {
+class _CameraBodyState extends State<CameraBody> {
   @override
   void initState() {
-    context.read<LightsCubit>().getInfo();
+    context.read<CameraCubit>().getInfo();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LightsCubit, GenericState>(
+    return BlocConsumer<CameraCubit, GenericState>(
       listener: (context, state) {
         if (state is GenericError) {
-          showCustomMessenger("Data can not be reached for the lights");
+          showCustomMessenger("Data can not be reached for the Camera");
         }
       },
       builder: (context, state) {
         if (state is GenericInitial) {
           return const GridMenuCustomContainer(
-            menuName: "LIGHTS",
-            upperMenuWidget: SizedBox(),
-          );
+              menuName: "Camera",
+              upperMenuWidget: Center(
+                child: SizedBox(),
+              ));
         } else if (state is GenericLoading) {
           return const GridMenuCustomContainer(
-            menuName: "LIGHTS",
-            upperMenuWidget: Center(
-              child: CircularProgressIndicator(
-                color: AppColors.purpleColor,
-              ),
-            ),
-          );
-        } else if (state is GenericCompletedItem) {
+              menuName: "Camera",
+              upperMenuWidget: Center(
+                  child:
+                      CircularProgressIndicator(color: AppColors.purpleColor)));
+        } else if (state is GenericCompletedList<CameraModel>) {
           return GridMenuCustomContainer(
-            menuName: "LIGHTS",
-            upperMenuWidget: LightsListWidget(state),
+            menuName: "Camera",
+            upperMenuWidget: CameraListWidget(state),
           );
         } else {
           final error = state as GenericError;

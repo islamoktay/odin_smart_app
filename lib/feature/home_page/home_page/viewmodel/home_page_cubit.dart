@@ -13,6 +13,6 @@ class HomePageCubit extends Cubit<GenericState> {
     const PowerBody(),
     const WeatherBody(),
     const CarBody(),
-    const RemoteControllerBody(),
+    const CameraBody(),
   ];
 }

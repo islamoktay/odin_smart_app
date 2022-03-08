@@ -40,18 +40,7 @@ class _PowerBodyState extends State<PowerBody> {
         } else if (state is GenericCompletedItem) {
           return GridMenuCustomContainer(
             menuName: "POWER",
-            upperMenuWidget: GestureDetector(
-              onTap: () => context.read<PowerCubit>().clickIconMethod(0),
-              child: Center(
-                child: Icon(
-                  Icons.power_settings_new,
-                  color: state.response.isPower
-                      ? Colors.greenAccent
-                      : Colors.redAccent,
-                  size: 85,
-                ),
-              ),
-            ),
+            upperMenuWidget: PowerIconWidget(state),
           );
         } else {
           final error = state as GenericError;
