@@ -40,7 +40,7 @@ class _RemoteControllerBodyState extends State<RemoteControllerBody> {
             upperMenuWidget: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const AppTextWidget(
+                AppTextWidget(
                   "Now Playing...",
                 ),
                 AppTextWidget(

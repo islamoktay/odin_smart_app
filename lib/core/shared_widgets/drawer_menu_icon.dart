@@ -12,7 +12,7 @@ class DrawerMenuIcon extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () => Go.to.page(RouteConstant.SETTINGS_VIEW),
         child: const Icon(
           Icons.menu,
           color: AppColors.darkGrey,
