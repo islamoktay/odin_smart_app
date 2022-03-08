@@ -35,21 +35,24 @@ class _RemoteControllerBodyState extends State<RemoteControllerBody> {
                   child:
                       CircularProgressIndicator(color: AppColors.purpleColor)));
         } else if (state is GenericCompletedItem) {
-          return GridMenuCustomContainer(
-            menuName: "TV",
-            upperMenuWidget: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AppTextWidget(
-                  "Now Playing...",
-                ),
-                AppTextWidget(
-                  state.response.tvChannel,
-                ),
-                AppTextWidget(
-                  state.response.tvProgram,
-                ),
-              ],
+          return GestureDetector(
+            onTap: () => Go.to.page(RouteConstant.REMOTE_CONTROLLER_VIEW),
+            child: GridMenuCustomContainer(
+              menuName: "TV",
+              upperMenuWidget: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppTextWidget(
+                    "Now Playing...",
+                  ),
+                  AppTextWidget(
+                    state.response.tvChannel,
+                  ),
+                  AppTextWidget(
+                    state.response.tvProgram,
+                  ),
+                ],
+              ),
             ),
           );
         } else {

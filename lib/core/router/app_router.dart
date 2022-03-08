@@ -18,6 +18,9 @@ class AppRouter {
         return CupertinoPageRoute(builder: (_) => const EditProfileBody());
       case RouteConstant.CHANGE_PASSWORD_VIEW:
         return CupertinoPageRoute(builder: (_) => const ChangePassword());
+      case RouteConstant.REMOTE_CONTROLLER_VIEW:
+        return CupertinoPageRoute(
+            builder: (_) => const RemoteControllerDetailPage());
       default:
         return null;
     }
