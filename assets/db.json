@@ -8,10 +8,6 @@
         "exit": false,
         "back": false,
         "numpad_input": "",
-        "offset": {
-            "x": 0.0,
-            "y": 0.0
-        },
         "ok": false,
         "up": false,
         "down": false,
@@ -65,5 +61,28 @@
                 "closeTime": "2022-03-07T18:00:00+03:00"
             }
         ]
+    },
+    "power": {
+        "isPower": false,
+        "refrigirator": {
+            "isPower": false,
+            "isMain": true
+        },
+        "fridge": {
+            "isPower": false,
+            "isMain": true
+        },
+        "television": {
+            "isPower": false,
+            "isMain": true
+        },
+        "lightbulbs": {
+            "isPower": false,
+            "isMain": true
+        },
+        "plugs": {
+            "isPower": false,
+            "isMain": true
+        }
     }
 }

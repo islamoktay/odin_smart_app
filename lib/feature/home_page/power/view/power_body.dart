@@ -3,23 +3,23 @@ import '../../../../core/_core_exports.dart';
 import '../../../../core/_package_exports.dart';
 import '../../../_feature_exports.dart';
 
-class LightsBody extends StatefulWidget {
-  const LightsBody({Key? key}) : super(key: key);
+class PowerBody extends StatefulWidget {
+  const PowerBody({Key? key}) : super(key: key);
 
   @override
-  State<LightsBody> createState() => _LightsBodyState();
+  State<PowerBody> createState() => _PowerBodyState();
 }
 
-class _LightsBodyState extends State<LightsBody> {
+class _PowerBodyState extends State<PowerBody> {
   @override
   void initState() {
-    context.read<LightsCubit>().getInfo();
+    context.read<PowerCubit>().getInfo();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LightsCubit, GenericState>(
+    return BlocConsumer<PowerCubit, GenericState>(
       listener: (context, state) {
         if (state is GenericError) {
           showCustomMessenger("Data can not be reached for the lights");
@@ -28,31 +28,29 @@ class _LightsBodyState extends State<LightsBody> {
       builder: (context, state) {
         if (state is GenericInitial) {
           return const GridMenuCustomContainer(
-            menuName: "LIGHTS",
+            menuName: "POWER",
             upperMenuWidget: SizedBox(),
           );
         } else if (state is GenericLoading) {
           return const GridMenuCustomContainer(
-              menuName: "LIGHTS",
+              menuName: "POWER",
               upperMenuWidget: Center(
                   child:
                       CircularProgressIndicator(color: AppColors.purpleColor)));
         } else if (state is GenericCompletedItem) {
-          return GridMenuCustomContainer(
-            menuName: "LIGHTS",
-            upperMenuWidget: ListView.builder(
-              shrinkWrap: true,
-              itemCount: context.watch<LightsCubit>().itemList.length,
-              itemBuilder: ((context, index) {
-                return CustomCheckBox(
-                  isLightOpen:
-                      context.watch<LightsCubit>().itemList[index].isOpen!,
-                  onChanged: (value) => context
-                      .read<LightsCubit>()
-                      .clickButtonMethod(value!, index),
-                  name: context.watch<LightsCubit>().itemList[index].name!,
-                );
-              }),
+          return GestureDetector(
+            onTap: () => context.read<PowerCubit>().clickIconMethod(0),
+            child: GridMenuCustomContainer(
+              menuName: "POWER",
+              upperMenuWidget: Center(
+                child: Icon(
+                  Icons.power_settings_new,
+                  color: state.response.isPower
+                      ? Colors.greenAccent
+                      : Colors.redAccent,
+                  size: 85,
+                ),
+              ),
             ),
           );
         } else {
