@@ -17,8 +17,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: isBackIcon == true ? const BackButtonIconWidget() : null,
       title: const AppBarTextLogo(),
       actions: isDrawer == true
-          ? const [
-              DrawerMenuIcon(),
+          ? [
+              const DrawerMenuIcon(),
             ]
           : null,
     );

@@ -21,6 +21,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppColors.scaffoldBackgroundColor,
         appBar: CustomAppBar(
           isBackIcon: widget.isBackIcon ?? true,
           isDrawer: widget.isDrawer ?? true,

@@ -12,6 +12,8 @@ class AppRouter {
         return CupertinoPageRoute(builder: (_) => const HomePage());
       case RouteConstant.CREDENTIAL_VIEW:
         return CupertinoPageRoute(builder: (_) => const CredentialPage());
+      case RouteConstant.SETTINGS_VIEW:
+        return CupertinoPageRoute(builder: (_) => Settings());
       default:
         return null;
     }
