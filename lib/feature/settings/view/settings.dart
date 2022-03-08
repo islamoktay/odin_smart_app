@@ -16,11 +16,11 @@ class Settings extends StatelessWidget {
         child: Column(
           children: [
             SettingsButton(
-              fun: () {},
+              fun: () => Go.to.page(RouteConstant.EDIT_PROFILE_VIEW),
               text: "Edit Profile",
             ),
             SettingsButton(
-              fun: () {},
+              fun: () => Go.to.page(RouteConstant.CHANGE_PASSWORD_VIEW),
               text: "Change Password",
             ),
             AppFilledButton(

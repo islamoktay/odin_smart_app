@@ -14,6 +14,10 @@ class AppRouter {
         return CupertinoPageRoute(builder: (_) => const CredentialPage());
       case RouteConstant.SETTINGS_VIEW:
         return CupertinoPageRoute(builder: (_) => Settings());
+      case RouteConstant.EDIT_PROFILE_VIEW:
+        return CupertinoPageRoute(builder: (_) => const EditProfileBody());
+      case RouteConstant.CHANGE_PASSWORD_VIEW:
+        return CupertinoPageRoute(builder: (_) => const ChangePassword());
       default:
         return null;
     }

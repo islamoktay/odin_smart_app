@@ -5,4 +5,6 @@ class RouteConstant {
   static const CREDENTIAL_VIEW = '/credentialView';
   static const HOME_PAGE_VIEW = '/homePageView';
   static const SETTINGS_VIEW = '/settingsView';
+  static const EDIT_PROFILE_VIEW = '/editProfileView';
+  static const CHANGE_PASSWORD_VIEW = '/changePasswordView';
 }

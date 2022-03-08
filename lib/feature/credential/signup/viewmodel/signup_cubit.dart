@@ -9,13 +9,13 @@ class SignUpCubit extends Cubit<GenericState> {
   TextEditingController passwordControllerOne = TextEditingController();
   TextEditingController passwordControllerTwo = TextEditingController();
 
-  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   Future<void> signUp() async {
     if (emailValidator(emailController.text) &&
         isSameTextValidator(
             passwordControllerOne.text, passwordControllerTwo.text)) {
-      AuthEnums? result = await AuthenticationService(firebaseAuth).signUp(
+      AuthEnums? result = await AuthenticationService(_firebaseAuth).signUp(
         email: emailController.text,
         password: passwordControllerOne.text,
       );

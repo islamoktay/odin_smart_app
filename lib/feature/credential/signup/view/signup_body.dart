@@ -33,7 +33,7 @@ class _SignUpBodyState extends State<SignUpBody> {
             ),
             const SizedBox(height: 20),
             AppTextFormField(
-              hintText: "Password Again",
+              hintText: "Confirm password",
               controller: context.watch<SignUpCubit>().passwordControllerTwo,
             ),
             const SizedBox(height: 20),
