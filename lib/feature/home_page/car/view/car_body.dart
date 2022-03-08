@@ -15,7 +15,6 @@ class _CarBodyState extends State<CarBody> {
   @override
   void initState() {
     context.read<CarCubit>().getInfo();
-
     super.initState();
   }
 

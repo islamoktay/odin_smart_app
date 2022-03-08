@@ -4,3 +4,4 @@ export 'lights/_lights_exports.dart';
 export 'power/_power_exports.dart';
 export 'weather/_weather_exports.dart';
 export 'car/_car_exports.dart';
+export 'camera/_camera_exports.dart';

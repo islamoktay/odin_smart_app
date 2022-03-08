@@ -109,5 +109,27 @@
                 "lon": 9.211679448937332
             }
         ]
-    }
+    },
+    "camera": [
+        {
+            "name": "Camera 1",
+            "url": "https://www.youtube.com/watch?v=SrKkGqkQG6M",
+            "isActive": true
+        },
+        {
+            "name": "Camera 1",
+            "url": "https://www.youtube.com/watch?v=KLiQYMHqEx4",
+            "isActive": true
+        },
+        {
+            "name": "Camera 1",
+            "url": "https://www.youtube.com/watch?v=ZLelYERK4Jg",
+            "isActive": true
+        },
+        {
+            "name": "Camera 1",
+            "url": "https://www.youtube.com/watch?v=ODmAV8oHFhg",
+            "isActive": true
+        }
+    ]
 }
