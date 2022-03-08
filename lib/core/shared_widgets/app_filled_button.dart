@@ -25,6 +25,7 @@ class AppFilledButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         buttonText,
+        textAlign: TextAlign.center,
         style: AppTextStyles.bodyTextStyleWhite.copyWith(
           color: textColor ?? Colors.white,
           letterSpacing: 1.0,

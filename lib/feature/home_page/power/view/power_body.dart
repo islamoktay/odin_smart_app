@@ -38,11 +38,11 @@ class _PowerBodyState extends State<PowerBody> {
                   child:
                       CircularProgressIndicator(color: AppColors.purpleColor)));
         } else if (state is GenericCompletedItem) {
-          return GestureDetector(
-            onTap: () => context.read<PowerCubit>().clickIconMethod(0),
-            child: GridMenuCustomContainer(
-              menuName: "POWER",
-              upperMenuWidget: Center(
+          return GridMenuCustomContainer(
+            menuName: "POWER",
+            upperMenuWidget: GestureDetector(
+              onTap: () => context.read<PowerCubit>().clickIconMethod(0),
+              child: Center(
                 child: Icon(
                   Icons.power_settings_new,
                   color: state.response.isPower

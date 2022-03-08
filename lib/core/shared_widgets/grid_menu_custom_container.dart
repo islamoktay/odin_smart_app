@@ -5,10 +5,12 @@ import '../_core_exports.dart';
 class GridMenuCustomContainer extends StatefulWidget {
   final String menuName;
   final Widget upperMenuWidget;
+  final Function()? onTap;
   const GridMenuCustomContainer({
     Key? key,
     required this.menuName,
     required this.upperMenuWidget,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -42,10 +44,13 @@ class _GridMenuCustomContainerState extends State<GridMenuCustomContainer> {
             indent: 10,
             endIndent: 10,
           ),
-          Center(
-            child: Text(
-              widget.menuName,
-              style: AppTextStyles.menuContainerBigStyle,
+          GestureDetector(
+            onTap: widget.onTap,
+            child: Center(
+              child: Text(
+                widget.menuName,
+                style: AppTextStyles.menuContainerBigStyle,
+              ),
             ),
           )
         ],

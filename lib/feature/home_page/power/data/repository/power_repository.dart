@@ -20,7 +20,6 @@ class SamplePowerRepository implements PowerRepository {
     final response = await http.get(
       Uri.parse(message),
     );
-    print(response.body);
     if (response.statusCode == 200) {
       final jsonBody = jsonDecode(response.body);
       PowerModel responseModel = PowerModel.fromMap(jsonBody);

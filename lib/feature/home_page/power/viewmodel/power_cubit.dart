@@ -19,7 +19,6 @@ class PowerCubit extends Cubit<GenericState> {
     try {
       emit(GenericLoading());
       final response = await _powerRepository.getInfo();
-      print(response.isPower);
       buildisMainList(response);
       buildisPowerList(response);
       emit(GenericCompletedItem<PowerModel>(response));

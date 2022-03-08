@@ -10,7 +10,7 @@ class HomePageCubit extends Cubit<GenericState> {
     const RemoteControllerBody(),
     const LightsBody(),
     const PowerBody(),
-    const RemoteControllerBody(),
+    const WeatherBody(),
     const RemoteControllerBody(),
     const RemoteControllerBody(),
   ];
