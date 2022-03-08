@@ -44,7 +44,7 @@ class AppTextStyles {
 //!-------------
   static TextStyle bodyTextStyleWhite = GoogleFonts.roboto(
     decoration: TextDecoration.none,
-    fontSize: 18.0,
+    fontSize: 14.0,
     color: AppColors.textColor,
     fontWeight: FontWeight.w400,
   );

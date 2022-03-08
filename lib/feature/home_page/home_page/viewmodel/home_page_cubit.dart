@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odin_smart_app/feature/home_page/car/view/car_body.dart';
 
 import '../../../../core/_core_exports.dart';
 import '../../../../core/_package_exports.dart';
@@ -9,9 +10,9 @@ class HomePageCubit extends Cubit<GenericState> {
   List<Widget> homePageGridBodyList = [
     const RemoteControllerBody(),
     const LightsBody(),
-    const RemoteControllerBody(),
-    const RemoteControllerBody(),
-    const RemoteControllerBody(),
+    const PowerBody(),
+    const WeatherBody(),
+    const CarBody(),
     const RemoteControllerBody(),
   ];
 }

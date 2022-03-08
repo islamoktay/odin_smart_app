@@ -28,14 +28,15 @@ class _LightsBodyState extends State<LightsBody> {
       builder: (context, state) {
         if (state is GenericInitial) {
           return const GridMenuCustomContainer(
-            menuName: "LIGTHS",
+            menuName: "LIGHTS",
             upperMenuWidget: SizedBox(),
           );
         } else if (state is GenericLoading) {
           return const GridMenuCustomContainer(
               menuName: "LIGHTS",
-              upperMenuWidget:
-                  CircularProgressIndicator(color: AppColors.purpleColor));
+              upperMenuWidget: Center(
+                  child:
+                      CircularProgressIndicator(color: AppColors.purpleColor)));
         } else if (state is GenericCompletedItem) {
           return GridMenuCustomContainer(
             menuName: "LIGHTS",

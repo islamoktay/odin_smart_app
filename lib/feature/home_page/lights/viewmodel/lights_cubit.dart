@@ -34,7 +34,6 @@ class LightsCubit extends Cubit<GenericState> {
   }
 
   Future<void> updateInfo() async {
-    print("cubit activated");
     try {
       emit(GenericLoading());
       final response = await _lightsRepository.updateInfo(isOpenList);

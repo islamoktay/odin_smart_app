@@ -31,8 +31,9 @@ class _RemoteControllerBodyState extends State<RemoteControllerBody> {
         } else if (state is GenericLoading) {
           return const GridMenuCustomContainer(
               menuName: "TV",
-              upperMenuWidget:
-                  CircularProgressIndicator(color: AppColors.purpleColor));
+              upperMenuWidget: Center(
+                  child:
+                      CircularProgressIndicator(color: AppColors.purpleColor)));
         } else if (state is GenericCompletedItem) {
           return GridMenuCustomContainer(
             menuName: "TV",

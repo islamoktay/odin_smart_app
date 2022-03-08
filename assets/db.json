@@ -8,10 +8,6 @@
         "exit": false,
         "back": false,
         "numpad_input": "",
-        "offset": {
-            "x": 0.0,
-            "y": 0.0
-        },
         "ok": false,
         "up": false,
         "down": false,
@@ -65,5 +61,75 @@
                 "closeTime": "2022-03-07T18:00:00+03:00"
             }
         ]
-    }
+    },
+    "power": {
+        "isPower": false,
+        "refrigirator": {
+            "isPower": false,
+            "isMain": true
+        },
+        "fridge": {
+            "isPower": false,
+            "isMain": true
+        },
+        "television": {
+            "isPower": false,
+            "isMain": true
+        },
+        "lightbulbs": {
+            "isPower": false,
+            "isMain": true
+        },
+        "plugs": {
+            "isPower": false,
+            "isMain": true
+        }
+    },
+    "car": {
+        "battery": 97,
+        "street": "Brunnenwiesen 13",
+        "region": "Riedenberg",
+        "city": "Stuttgart",
+        "lat": 48.732860,
+        "lon": 9.212503,
+        "charge_stations": [
+            {
+                "name": "Station 1",
+                "lat": 48.734466302262945,
+                "lon": 9.215378326345043
+            },
+            {
+                "name": "Station 1",
+                "lat": 48.73559140542003,
+                "lon": 9.210732740502575
+            },
+            {
+                "name": "Station 1",
+                "lat": 48.73035208199947,
+                "lon": 9.211679448937332
+            }
+        ]
+    },
+    "camera": [
+        {
+            "name": "Camera 1",
+            "url": "https://www.youtube.com/watch?v=SrKkGqkQG6M",
+            "isActive": true
+        },
+        {
+            "name": "Camera 1",
+            "url": "https://www.youtube.com/watch?v=KLiQYMHqEx4",
+            "isActive": true
+        },
+        {
+            "name": "Camera 1",
+            "url": "https://www.youtube.com/watch?v=ZLelYERK4Jg",
+            "isActive": true
+        },
+        {
+            "name": "Camera 1",
+            "url": "https://www.youtube.com/watch?v=ODmAV8oHFhg",
+            "isActive": true
+        }
+    ]
 }
