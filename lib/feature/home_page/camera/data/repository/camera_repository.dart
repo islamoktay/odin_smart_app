@@ -5,23 +5,24 @@ import '../../../../../core/_core_exports.dart';
 import '../../../../_feature_exports.dart';
 
 abstract class CameraRepository {
-  Future<CameraModel> getInfo();
+  Future<List<CameraModel>> getInfo();
 }
 
 class SampleCameraRepository implements CameraRepository {
   @override
-  Future<CameraModel> getInfo() async {
-    return await compute(computeFunction, UrlConstant.REMOTE_CONTROLLER_URL);
+  Future<List<CameraModel>> getInfo() async {
+    return await compute(computeFunction, UrlConstant.CAMERA_URL);
   }
 
-  static Future<CameraModel> computeFunction(String message) async {
+  static Future<List<CameraModel>> computeFunction(String message) async {
     final response = await http.get(
       Uri.parse(message),
     );
     if (response.statusCode == 200) {
-      final jsonBody = jsonDecode(response.body);
-      List<CameraModel> favoritesList = List<CameraModel>.from(
-          jsonBody.map((model) => CameraModel.fromJson(model)));
+      final jsonBody = jsonDecode(utf8.decode(response.bodyBytes));
+      List<CameraModel> responseModel = List<CameraModel>.from(
+          jsonBody.map((model) => CameraModel.fromMap(model)));
+
       return responseModel;
     }
     throw NetworkError(response.statusCode.toString(), response.body);

@@ -13,14 +13,13 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-
-    Future.delayed(const Duration(milliseconds: 1000)).then(
+    Future.delayed(const Duration(milliseconds: 500)).then(
       (value) {
         Geolocator.requestPermission();
       },
     );
     LocationService.getCurrentLocation();
-    Future.delayed(const Duration(milliseconds: 1600)).then(
+    Future.delayed(const Duration(milliseconds: 1500)).then(
       (value) {
         Go.to.page(RouteConstant.CREDENTIAL_VIEW);
       },
