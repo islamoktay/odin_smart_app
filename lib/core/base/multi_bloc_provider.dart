@@ -7,6 +7,10 @@ List<BlocProvider> multiBlocProvider = [
   BlocProvider<HomePageCubit>(create: ((_) => HomePageCubit())),
   BlocProvider<SettingsCubit>(create: ((_) => SettingsCubit())),
 
+  //! Detail Page Cubits
+  BlocProvider<RemoteControllerDetailPageCubit>(
+      create: ((_) => RemoteControllerDetailPageCubit())),
+
   //! Cubits with repositories
   BlocProvider<RemoteControllerCubit>(
       create: ((_) =>
