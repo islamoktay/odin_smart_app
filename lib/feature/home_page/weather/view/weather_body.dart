@@ -43,15 +43,11 @@ class _WeatherBodyState extends State<WeatherBody> {
         } else if (state is GenericCompletedItem) {
           return GridMenuCustomContainer(
             menuName: "WEATHER",
-            upperMenuWidget: Center(
-              child: LocationService.isEnabled
-                  ? WeatherDataBody(state)
-                  : const GridMenuCustomContainer(
-                      menuName: "WEATHER",
-                      upperMenuWidget: Center(
-                        child: GetWeatherButton(),
-                      )),
-            ),
+            upperMenuWidget: LocationService.isEnabled
+                ? WeatherDataBody(state)
+                : const Center(
+                    child: GetWeatherButton(),
+                  ),
           );
         } else {
           return const GridMenuCustomContainer(

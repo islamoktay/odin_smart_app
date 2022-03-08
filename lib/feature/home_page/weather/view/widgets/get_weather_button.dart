@@ -12,21 +12,10 @@ class GetWeatherButton extends StatefulWidget {
 }
 
 class _GetWeatherButtonState extends State<GetWeatherButton> {
-  int i = 0;
   @override
   Widget build(BuildContext context) {
     return AppFilledButton(
-        onPressed: () async {
-          if (i == 0) {
-            await Geolocator.openLocationSettings();
-            i++;
-          } else {
-            await LocationService.getCurrentLocation();
-            context
-                .read<WeatherCubit>()
-                .getInfo(LocationService.locationString);
-          }
-        },
+        onPressed: () => context.read<WeatherCubit>().getWeatherMethod(),
         buttonText: "Get Weather");
   }
 }

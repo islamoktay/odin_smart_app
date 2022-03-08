@@ -7,4 +7,6 @@ class UrlConstant {
       "https://odin-smart-app-default-rtdb.europe-west1.firebasedatabase.app/lights.json";
   static const POWER_URL =
       "https://odin-smart-app-default-rtdb.europe-west1.firebasedatabase.app/power.json";
+  static const CAR_URL =
+      "https://odin-smart-app-default-rtdb.europe-west1.firebasedatabase.app/car.json";
 }
