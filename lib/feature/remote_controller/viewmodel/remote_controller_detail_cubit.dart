@@ -9,7 +9,6 @@ class RemoteControllerDetailPageCubit extends Cubit<String?> {
   List<String> settingButtons = [
     "Netflix",
     "Youtube",
-    "Menu",
     "Exit",
     "Home",
     "Back",
@@ -51,6 +50,59 @@ class RemoteControllerDetailPageCubit extends Cubit<String?> {
         return "#";
       default:
         return (index + 1).toString();
+    }
+  }
+
+  Future<StatusCode> sendPressedButtonData(String item) async {
+    switch (item) {
+      case "Netflix":
+        sl<SampleRemoteControllerDetailRepository>().updateNetflix(true);
+        return Future.delayed(const Duration(seconds: 2)).then((value) =>
+            sl<SampleRemoteControllerDetailRepository>().updateNetflix(false));
+      case "Youtube":
+        sl<SampleRemoteControllerDetailRepository>().updatYoutube(true);
+        return Future.delayed(const Duration(seconds: 2)).then((value) =>
+            sl<SampleRemoteControllerDetailRepository>().updatYoutube(false));
+      case "Exit":
+        sl<SampleRemoteControllerDetailRepository>().updateExitButton(true);
+        return Future.delayed(const Duration(seconds: 2)).then((value) =>
+            sl<SampleRemoteControllerDetailRepository>()
+                .updateExitButton(false));
+      case "Home":
+        sl<SampleRemoteControllerDetailRepository>().updateHomeButton(true);
+        return Future.delayed(const Duration(seconds: 2)).then((value) =>
+            sl<SampleRemoteControllerDetailRepository>()
+                .updateHomeButton(false));
+      case "Back":
+        sl<SampleRemoteControllerDetailRepository>().updateBackButton(true);
+        return Future.delayed(const Duration(seconds: 2)).then((value) =>
+            sl<SampleRemoteControllerDetailRepository>()
+                .updateBackButton(false));
+      case "up":
+        sl<SampleRemoteControllerDetailRepository>().updateUpButton(true);
+        return Future.delayed(const Duration(seconds: 2)).then((value) =>
+            sl<SampleRemoteControllerDetailRepository>().updateUpButton(false));
+      case "left":
+        sl<SampleRemoteControllerDetailRepository>().updateLeftButton(true);
+        return Future.delayed(const Duration(seconds: 2)).then((value) =>
+            sl<SampleRemoteControllerDetailRepository>()
+                .updateLeftButton(false));
+      case "ok":
+        sl<SampleRemoteControllerDetailRepository>().updateOkButton(true);
+        return Future.delayed(const Duration(seconds: 2)).then((value) =>
+            sl<SampleRemoteControllerDetailRepository>().updateOkButton(false));
+      case "right":
+        sl<SampleRemoteControllerDetailRepository>().updateRightButton(true);
+        return Future.delayed(const Duration(seconds: 2)).then((value) =>
+            sl<SampleRemoteControllerDetailRepository>()
+                .updateRightButton(false));
+      case "down":
+        sl<SampleRemoteControllerDetailRepository>().updateDownButton(true);
+        return Future.delayed(const Duration(seconds: 2)).then((value) =>
+            sl<SampleRemoteControllerDetailRepository>()
+                .updateDownButton(false));
+      default:
+        return StatusCode.SUCCESS;
     }
   }
 }

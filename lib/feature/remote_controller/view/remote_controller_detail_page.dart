@@ -19,57 +19,10 @@ class RemoteControllerDetailPage extends StatelessWidget {
           body: Padding(
             padding: PaddingConstants.generalPagePadding,
             child: Column(
-              children: [
-                const NumpadBody(),
-                GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 6,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    childAspectRatio: 2.5,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                  ),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          color: AppColors.secondaryColor,
-                          borderRadius: BorderRadius.circular(15)),
-                      child: AppTextWidget(
-                        context
-                            .watch<RemoteControllerDetailPageCubit>()
-                            .settingButtons[index],
-                        textSize: 20,
-                      ),
-                    );
-                  },
-                ),
-                Column(
-                  children: [
-                    Image.asset(ImageConstants.up),
-                    const SizedBox(height: 25),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(ImageConstants.left),
-                        const SizedBox(width: 25),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Image.asset(
-                            ImageConstants.okButton,
-                            color: AppColors.purpleColor,
-                          ),
-                        ),
-                        const SizedBox(width: 25),
-                        Image.asset(ImageConstants.right),
-                      ],
-                    ),
-                    const SizedBox(height: 25),
-                    Image.asset(ImageConstants.down),
-                  ],
-                )
+              children: const [
+                NumpadBody(),
+                MenuButtonsBody(),
+                DirectionPadBody(),
               ],
             ),
           ),
