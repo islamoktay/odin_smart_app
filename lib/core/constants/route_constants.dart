@@ -8,4 +8,5 @@ class RouteConstant {
   static const EDIT_PROFILE_VIEW = '/editProfileView';
   static const CHANGE_PASSWORD_VIEW = '/changePasswordView';
   static const REMOTE_CONTROLLER_VIEW = '/remoteControllerView';
+  static const LIGHT_VIEW = '/lightView';
 }

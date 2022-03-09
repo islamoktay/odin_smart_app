@@ -40,8 +40,9 @@ class _LightsBodyState extends State<LightsBody> {
               ),
             ),
           );
-        } else if (state is GenericCompletedItem) {
+        } else if (state is GenericCompletedItem<LightModel>) {
           return GridMenuCustomContainer(
+            onTap: () => Go.to.page(RouteConstant.LIGHT_VIEW),
             menuName: "LIGHTS",
             upperMenuWidget: LightsListWidget(state),
           );

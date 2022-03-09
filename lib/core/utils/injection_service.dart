@@ -6,4 +6,5 @@ final sl = GetIt.instance;
 Future<void> init() async {
   //! REMOTE CONTROLLER FEATURE
   sl.registerLazySingleton(() => SampleRemoteControllerDetailRepository());
+  sl.registerLazySingleton(() => RemoteControllerDetailPageCubit());
 }
