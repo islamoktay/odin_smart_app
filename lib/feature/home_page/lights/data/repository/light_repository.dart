@@ -6,7 +6,8 @@ import '../../../../_feature_exports.dart';
 
 abstract class LightsRepository {
   Future<LightModel> getInfo();
-  Future<LightModel> updateInfo(List<bool> list);
+  Future<LightModel> updateLightInfo(List<bool> list);
+  Future<LightModel> updateInfoForAll();
 }
 
 class SampleLightsRepository implements LightsRepository {
@@ -22,6 +23,22 @@ class SampleLightsRepository implements LightsRepository {
     if (response.statusCode == 200) {
       final jsonBody = jsonDecode(response.body);
       LightModel responseModel = LightModel.fromMap(jsonBody);
+      return responseModel;
+    }
+    throw NetworkError(response.statusCode.toString(), response.body);
+  }
+
+  @override
+  Future<LightModel> updateLightInfo(List<bool> list) async {
+    String json =
+        '{"ligts_devices":[{"closeTime":"${sl<LightModel>().ligtsDevices[0].closeTime}","isOpen":${list[0]},"levelOfOpen":${sl<LightModel>().ligtsDevices[0].levelOfOpen},"name":"${sl<LightModel>().ligtsDevices[0].name}","openTime":"${sl<LightModel>().ligtsDevices[0].openTime}"},{"closeTime":"${sl<LightModel>().ligtsDevices[1].closeTime}","isOpen":${list[1]},"levelOfOpen":${sl<LightModel>().ligtsDevices[1].levelOfOpen},"name":"${sl<LightModel>().ligtsDevices[1].name}","openTime":"${sl<LightModel>().ligtsDevices[1].openTime}"},{"closeTime":"${sl<LightModel>().ligtsDevices[2].closeTime}","isOpen":${list[2]},"levelOfOpen":${sl<LightModel>().ligtsDevices[2].levelOfOpen},"name":"${sl<LightModel>().ligtsDevices[2].name}","openTime":"${sl<LightModel>().ligtsDevices[2].openTime}"},{"closeTime":"${sl<LightModel>().ligtsDevices[3].closeTime}","isOpen":${list[3]},"levelOfOpen":${sl<LightModel>().ligtsDevices[3].levelOfOpen},"name":"${sl<LightModel>().ligtsDevices[3].name}","openTime":"${sl<LightModel>().ligtsDevices[3].openTime}"}]}';
+    final response = await http.patch(
+      Uri.parse(UrlConstant.LIGHTS_URL),
+      body: json,
+    );
+    if (response.statusCode == 200) {
+      final jsonBody = jsonDecode(response.body);
+      LightModel responseModel = LightModel.fromMap(jsonBody);
 
       return responseModel;
     }
@@ -29,9 +46,9 @@ class SampleLightsRepository implements LightsRepository {
   }
 
   @override
-  Future<LightModel> updateInfo(List<bool> list) async {
+  Future<LightModel> updateInfoForAll() async {
     String json =
-        '{"ligts_devices":[{"closeTime":"2022-03-07T18:00:00+03:00","isOpen":${list[0]},"levelOfOpen":0,"name":"Light 1","openTime":"2022-03-07T18:00:00+03:00"},{"closeTime":"2022-03-07T18:00:00+03:00","isOpen":${list[1]},"levelOfOpen":0,"name":"Light 2","openTime":"2022-03-07T18:00:00+03:00"},{"closeTime":"2022-03-07T18:00:00+03:00","isOpen":${list[2]},"levelOfOpen":0,"name":"Curtain 1","openTime":"2022-03-07T18:00:00+03:00"},{"closeTime":"2022-03-07T18:00:00+03:00","isOpen":${list[3]},"levelOfOpen":0,"name":"Curtain 2","openTime":"2022-03-07T18:00:00+03:00"}]}';
+        '{"ligts_devices":[{"closeTime":"${sl<LightModel>().ligtsDevices[0].closeTime}","isOpen":${sl<LightModel>().ligtsDevices[0].isOpen},"levelOfOpen":${sl<LightModel>().ligtsDevices[0].levelOfOpen},"name":"${sl<LightModel>().ligtsDevices[0].name}","openTime":"${sl<LightModel>().ligtsDevices[0].openTime}"},{"closeTime":"${sl<LightModel>().ligtsDevices[1].closeTime}","isOpen":${sl<LightModel>().ligtsDevices[1].isOpen},"levelOfOpen":${sl<LightModel>().ligtsDevices[1].levelOfOpen},"name":"${sl<LightModel>().ligtsDevices[1].name}","openTime":"${sl<LightModel>().ligtsDevices[1].openTime}"},{"closeTime":"${sl<LightModel>().ligtsDevices[2].closeTime}","isOpen":${sl<LightModel>().ligtsDevices[2].isOpen},"levelOfOpen":${sl<LightModel>().ligtsDevices[2].levelOfOpen},"name":"${sl<LightModel>().ligtsDevices[2].name}","openTime":"${sl<LightModel>().ligtsDevices[2].openTime}"},{"closeTime":"${sl<LightModel>().ligtsDevices[3].closeTime}","isOpen":${sl<LightModel>().ligtsDevices[3].isOpen},"levelOfOpen":${sl<LightModel>().ligtsDevices[3].levelOfOpen},"name":"${sl<LightModel>().ligtsDevices[3].name}","openTime":"${sl<LightModel>().ligtsDevices[3].openTime}"}]}';
     final response = await http.patch(
       Uri.parse(UrlConstant.LIGHTS_URL),
       body: json,

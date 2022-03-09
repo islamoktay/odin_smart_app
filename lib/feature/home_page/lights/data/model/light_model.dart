@@ -2,16 +2,16 @@
 //
 //     final lightModel = lightModelFromMap(jsonString);
 
-// ignore_for_file: prefer_if_null_operators
+// ignore_for_file: prefer_if_null_operators, prefer_null_aware_operators
 
 import 'dart:convert';
 
 class LightModel {
   LightModel({
-    this.ligtsDevices,
+    required this.ligtsDevices,
   });
 
-  List<LigtsDevice>? ligtsDevices;
+  late List<LigtsDevice> ligtsDevices;
 
   factory LightModel.fromJson(String str) =>
       LightModel.fromMap(json.decode(str));
@@ -19,16 +19,14 @@ class LightModel {
   String toJson() => json.encode(toMap());
 
   factory LightModel.fromMap(Map<String, dynamic> json) => LightModel(
-        ligtsDevices: json["ligts_devices"] == null
-            ? null
-            : List<LigtsDevice>.from(
-                json["ligts_devices"].map((x) => LigtsDevice.fromMap(x))),
+        ligtsDevices: List<LigtsDevice>.from(
+            json["ligts_devices"].map((x) => LigtsDevice.fromMap(x))),
       );
 
   Map<String, dynamic> toMap() => {
         "ligts_devices": ligtsDevices == null
             ? null
-            : List<dynamic>.from(ligtsDevices!.map((x) => x.toMap())),
+            : List<dynamic>.from(ligtsDevices.map((x) => x.toMap())),
       };
 }
 

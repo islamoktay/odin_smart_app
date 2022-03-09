@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../_core_exports.dart';
 
@@ -62,17 +61,12 @@ class AppTextFormField extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: horizontalPadding ?? 0),
       child: TextFormField(
-        inputFormatters: [
-          LengthLimitingTextInputFormatter(textLimit),
-        ],
         enabled: enabled,
         onTap: onTap,
         focusNode: focusNode,
         onEditingComplete: onFieldComplete,
         onFieldSubmitted: onFieldSubmitted,
         decoration: InputDecoration(
-          counterText:
-              textLimit == null ? "" : "${controller!.text.length}/$textLimit",
           isDense: true,
           hintText: hintText,
           hintStyle: AppTextStyles.bodySmallTextStyleBlack,

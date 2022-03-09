@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../feature/_feature_exports.dart';
 
 List<BlocProvider> multiBlocProvider = [
+  //!General Cubits
   BlocProvider<LoginCubit>(create: ((_) => LoginCubit())),
   BlocProvider<SignUpCubit>(create: ((_) => SignUpCubit())),
   BlocProvider<HomePageCubit>(create: ((_) => HomePageCubit())),
@@ -10,6 +11,8 @@ List<BlocProvider> multiBlocProvider = [
   //! Detail Page Cubits
   BlocProvider<RemoteControllerDetailPageCubit>(
       create: ((_) => RemoteControllerDetailPageCubit())),
+  BlocProvider<LevelOfOpenListCubit>(create: ((_) => LevelOfOpenListCubit())),
+  BlocProvider<LightDetailPageCubit>(create: ((_) => LightDetailPageCubit())),
 
   //! Cubits with repositories
   BlocProvider<RemoteControllerCubit>(

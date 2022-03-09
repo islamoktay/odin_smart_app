@@ -12,7 +12,13 @@ class LightDetailPage extends StatefulWidget {
 }
 
 class _LightDetailPageState extends State<LightDetailPage> {
-  double _value = 0.5;
+  @override
+  void initState() {
+    context
+        .read<LevelOfOpenListCubit>()
+        .setList(sl<LightsCubit>().levelOfOpenList);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,7 @@ class _LightDetailPageState extends State<LightDetailPage> {
                   children: [
                     const SizedBox(height: 5),
                     AppTextWidget(
-                      state.response.ligtsDevices![index].name!,
+                      state.response.ligtsDevices[index].name!,
                       textSize: 24,
                     ),
                     const SizedBox(
@@ -50,46 +56,67 @@ class _LightDetailPageState extends State<LightDetailPage> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * .3,
                           child: AppTextFormField(
-                            hintText: state.response.ligtsDevices![index]
-                                        .openTime ==
-                                    null
-                                ? "Start Time"
-                                : "${state.response.ligtsDevices![index].openTime!.substring(0, 2)} : ${state.response.ligtsDevices![index].openTime!.substring(2)}",
+                            controller: sl<LightDetailPageCubit>()
+                                .controllerDecider(index)[0],
+                            hintText: sl<LightDetailPageCubit>()
+                                .generateHintTextForOpenTime(state, index),
                           ),
                         ),
                         SizedBox(
                             width: MediaQuery.of(context).size.width * .3,
                             child: AppTextFormField(
-                              hintText: state.response.ligtsDevices![index]
-                                          .closeTime ==
-                                      null
-                                  ? "End Time"
-                                  : "${state.response.ligtsDevices![index].openTime!.substring(0, 2)} : ${state.response.ligtsDevices![index].openTime!.substring(2)}",
+                              controller: sl<LightDetailPageCubit>()
+                                  .controllerDecider(index)[1],
+                              hintText: sl<LightDetailPageCubit>()
+                                  .generateHintTextForCloseTime(state, index),
                             )),
-                        const Icon(
-                          Icons.cancel,
-                          size: 38,
-                          color: Colors.white,
-                        )
+                        GestureDetector(
+                          onTap: () => context
+                              .read<LightDetailPageCubit>()
+                              .onApplyButtonPressed(index),
+                          child: const Icon(
+                            Icons.check_circle,
+                            size: 30,
+                            color: Colors.white,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            context
+                                .read<LightDetailPageCubit>()
+                                .onCancelButtonPressed(index, state);
+                            setState(() {});
+                          },
+                          child: const Icon(
+                            Icons.cancel,
+                            size: 30,
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
-                    Slider(
-                      value: _value,
-                      activeColor: AppColors.purpleColor,
-                      inactiveColor: Colors.white,
-                      thumbColor: AppColors.purpleColor,
-                      onChangeEnd: (value) {
-                        print("tatattatatatat");
-                        print(value.toStringAsFixed(2));
-                      },
-                      onChangeStart: (value) {
-                        _value = value;
-                        setState(() {});
-                      },
-                      onChanged: (value) {
-                        setState(() {});
-
-                        _value = value;
+                    BlocConsumer<LevelOfOpenListCubit, List<double>>(
+                      listener: (context, state) {},
+                      builder: (context, stateLevel) {
+                        return Slider(
+                          value: stateLevel[index],
+                          activeColor: AppColors.purpleColor,
+                          inactiveColor: Colors.white,
+                          thumbColor: AppColors.purpleColor,
+                          onChangeEnd: (value) {
+                            sl<LightModel>().ligtsDevices[index].levelOfOpen =
+                                double.parse(value.toStringAsFixed(2));
+                            sl<SampleLightsRepository>().updateInfoForAll();
+                          },
+                          onChangeStart: (value) {
+                            stateLevel[index] = value;
+                            setState(() {});
+                          },
+                          onChanged: (value) {
+                            stateLevel[index] = value;
+                            setState(() {});
+                          },
+                        );
                       },
                     )
                   ],

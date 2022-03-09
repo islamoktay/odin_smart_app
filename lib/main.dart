@@ -7,15 +7,17 @@ import 'core/utils/injection_service.dart' as dependencyInjection;
 
 Future<void> main() async {
   await buildInit();
-  runApp(EasyLocalization(
-      path: LocaleConstant.LANG_PATH,
-      supportedLocales: LocaleConstant.SUPPORTED_LOCALES,
-      child: const MyApp()));
+  sl.allReady().then((value) async {
+    runApp(EasyLocalization(
+        path: LocaleConstant.LANG_PATH,
+        supportedLocales: LocaleConstant.SUPPORTED_LOCALES,
+        child: const MyApp()));
+  });
 }
 
 Future<void> buildInit() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dependencyInjection.init();
   await Firebase.initializeApp();
   await EasyLocalization.ensureInitialized();
-  await dependencyInjection.init();
 }
