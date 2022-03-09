@@ -2,18 +2,16 @@
 //
 //     final lightModel = lightModelFromMap(jsonString);
 
-// ignore_for_file: prefer_null_aware_operators, prefer_if_null_operators
+// ignore_for_file: prefer_if_null_operators
 
 import 'dart:convert';
 
 class LightModel {
   LightModel({
-    this.lightBulbs,
-    this.curtains,
+    this.ligtsDevices,
   });
 
-  List<Curtain>? lightBulbs;
-  List<Curtain>? curtains;
+  List<LigtsDevice>? ligtsDevices;
 
   factory LightModel.fromJson(String str) =>
       LightModel.fromMap(json.decode(str));
@@ -21,28 +19,21 @@ class LightModel {
   String toJson() => json.encode(toMap());
 
   factory LightModel.fromMap(Map<String, dynamic> json) => LightModel(
-        lightBulbs: json["light_bulbs"] == null
+        ligtsDevices: json["ligts_devices"] == null
             ? null
-            : List<Curtain>.from(
-                json["light_bulbs"].map((x) => Curtain.fromMap(x))),
-        curtains: json["curtains"] == null
-            ? null
-            : List<Curtain>.from(
-                json["curtains"].map((x) => Curtain.fromMap(x))),
+            : List<LigtsDevice>.from(
+                json["ligts_devices"].map((x) => LigtsDevice.fromMap(x))),
       );
 
   Map<String, dynamic> toMap() => {
-        "light_bulbs": lightBulbs == null
+        "ligts_devices": ligtsDevices == null
             ? null
-            : List<dynamic>.from(lightBulbs!.map((x) => x.toMap())),
-        "curtains": curtains == null
-            ? null
-            : List<dynamic>.from(curtains!.map((x) => x.toMap())),
+            : List<dynamic>.from(ligtsDevices!.map((x) => x.toMap())),
       };
 }
 
-class Curtain {
-  Curtain({
+class LigtsDevice {
+  LigtsDevice({
     this.name,
     this.isOpen,
     this.levelOfOpen,
@@ -52,30 +43,29 @@ class Curtain {
 
   String? name;
   bool? isOpen;
-  int? levelOfOpen;
-  DateTime? openTime;
-  DateTime? closeTime;
+  double? levelOfOpen;
+  String? openTime;
+  String? closeTime;
 
-  factory Curtain.fromJson(String str) => Curtain.fromMap(json.decode(str));
+  factory LigtsDevice.fromJson(String str) =>
+      LigtsDevice.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory Curtain.fromMap(Map<String, dynamic> json) => Curtain(
+  factory LigtsDevice.fromMap(Map<String, dynamic> json) => LigtsDevice(
         name: json["name"] == null ? null : json["name"],
         isOpen: json["isOpen"] == null ? null : json["isOpen"],
-        levelOfOpen: json["levelOfOpen"] == null ? null : json["levelOfOpen"],
-        openTime:
-            json["openTime"] == null ? null : DateTime.parse(json["openTime"]),
-        closeTime: json["closeTime"] == null
-            ? null
-            : DateTime.parse(json["closeTime"]),
+        levelOfOpen:
+            json["levelOfOpen"] == null ? null : json["levelOfOpen"].toDouble(),
+        openTime: json["openTime"] == null ? null : json["openTime"],
+        closeTime: json["closeTime"] == null ? null : json["closeTime"],
       );
 
   Map<String, dynamic> toMap() => {
         "name": name == null ? null : name,
         "isOpen": isOpen == null ? null : isOpen,
         "levelOfOpen": levelOfOpen == null ? null : levelOfOpen,
-        "openTime": openTime == null ? null : openTime?.toIso8601String(),
-        "closeTime": closeTime == null ? null : closeTime?.toIso8601String(),
+        "openTime": openTime == null ? null : openTime,
+        "closeTime": closeTime == null ? null : closeTime,
       };
 }

@@ -9,8 +9,6 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      isBackIcon: true,
-      isDrawer: true,
       body: Padding(
         padding: PaddingConstants.generalPagePadding,
         child: Column(

@@ -21,6 +21,8 @@ class AppRouter {
       case RouteConstant.REMOTE_CONTROLLER_VIEW:
         return CupertinoPageRoute(
             builder: (_) => const RemoteControllerDetailPage());
+      case RouteConstant.LIGHT_VIEW:
+        return CupertinoPageRoute(builder: (_) => const LightDetailPage());
       default:
         return null;
     }

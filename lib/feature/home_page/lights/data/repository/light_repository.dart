@@ -22,6 +22,7 @@ class SampleLightsRepository implements LightsRepository {
     if (response.statusCode == 200) {
       final jsonBody = jsonDecode(response.body);
       LightModel responseModel = LightModel.fromMap(jsonBody);
+
       return responseModel;
     }
     throw NetworkError(response.statusCode.toString(), response.body);
@@ -30,8 +31,7 @@ class SampleLightsRepository implements LightsRepository {
   @override
   Future<LightModel> updateInfo(List<bool> list) async {
     String json =
-        '{"light_bulbs":[{"name":"Light Bulb 1","isOpen":${list[0]},"levelOfOpen":0,"openTime":"2022-03-07T18:00:00+03:00","closeTime":"2022-03-07T18:00:00+03:00"},{"name":"Light Bulb 2","isOpen":${list[1]},"levelOfOpen":0,"openTime":"2022-03-07T18:00:00+03:00","closeTime":"2022-03-07T18:00:00+03:00"}],"curtains":[{"name":"Curtain 1","isOpen":${list[2]},"levelOfOpen":0,"openTime":"2022-03-07T18:00:00+03:00","closeTime":"2022-03-07T18:00:00+03:00"},{"name":"Curtain 2","isOpen":${list[3]},"levelOfOpen":0,"openTime":"2022-03-07T18:00:00+03:00","closeTime":"2022-03-07T18:00:00+03:00"}]}';
-
+        '{"ligts_devices":[{"closeTime":"2022-03-07T18:00:00+03:00","isOpen":${list[0]},"levelOfOpen":0,"name":"Light 1","openTime":"2022-03-07T18:00:00+03:00"},{"closeTime":"2022-03-07T18:00:00+03:00","isOpen":${list[1]},"levelOfOpen":0,"name":"Light 2","openTime":"2022-03-07T18:00:00+03:00"},{"closeTime":"2022-03-07T18:00:00+03:00","isOpen":${list[2]},"levelOfOpen":0,"name":"Curtain 1","openTime":"2022-03-07T18:00:00+03:00"},{"closeTime":"2022-03-07T18:00:00+03:00","isOpen":${list[3]},"levelOfOpen":0,"name":"Curtain 2","openTime":"2022-03-07T18:00:00+03:00"}]}';
     final response = await http.patch(
       Uri.parse(UrlConstant.LIGHTS_URL),
       body: json,
@@ -39,6 +39,7 @@ class SampleLightsRepository implements LightsRepository {
     if (response.statusCode == 200) {
       final jsonBody = jsonDecode(response.body);
       LightModel responseModel = LightModel.fromMap(jsonBody);
+
       return responseModel;
     }
     throw NetworkError(response.statusCode.toString(), response.body);

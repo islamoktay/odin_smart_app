@@ -13,8 +13,6 @@ class RemoteControllerDetailPage extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return CustomScaffold(
-          isBackIcon: true,
-          isDrawer: true,
           numPadShow: state,
           body: Padding(
             padding: PaddingConstants.generalPagePadding,
