@@ -45,6 +45,7 @@ class _CarBodyState extends State<CarBody> {
         } else if (state is GenericCompletedItem<CarModel>) {
           return GridMenuCustomContainer(
             menuName: "CAR",
+            onTap: () => Go.to.page(RouteConstant.CAR_DETAIL_VIEW),
             upperMenuWidget: CarInfoBody(state),
           );
         } else {

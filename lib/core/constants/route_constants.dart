@@ -10,4 +10,5 @@ class RouteConstant {
   static const REMOTE_CONTROLLER_VIEW = '/remoteControllerView';
   static const LIGHT_VIEW = '/lightView';
   static const WEATHER_DETAIL_VIEW = '/weatherDetailView';
+  static const CAR_DETAIL_VIEW = '/carDetailView';
 }

@@ -5,3 +5,4 @@ export 'settings/_settings_exports.dart';
 export 'remote_controller/_remote_exports.dart';
 export 'light/_light_exports.dart';
 export 'weather/_weather_exports.dart';
+export 'car/_car_exports.dart';
