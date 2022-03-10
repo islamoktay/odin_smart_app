@@ -27,8 +27,15 @@ class AppRouter {
         return CupertinoPageRoute(builder: (_) => const WeatherDetailPage());
       case RouteConstant.CAR_DETAIL_VIEW:
         return CupertinoPageRoute(builder: (_) => const CarDetailPage());
+      case RouteConstant.CAMERA_LIST_VIEW:
+        return CupertinoPageRoute(builder: (_) => const CameraListPage());
+      case RouteConstant.CAMERA_DETAIL_VIEW:
+        final CameraModel argument = routeSettings.arguments as CameraModel;
+
+        return CupertinoPageRoute(
+            builder: (_) => CameraDetailPage(cameraModel: argument));
       default:
-        return null;
+        return CupertinoPageRoute(builder: (_) => const HomePage());
     }
   }
 }

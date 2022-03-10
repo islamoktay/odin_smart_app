@@ -41,6 +41,7 @@ class _CameraBodyState extends State<CameraBody> {
         } else if (state is GenericCompletedList<CameraModel>) {
           return GridMenuCustomContainer(
             menuName: "SECURITY",
+            onTap: () => Go.to.page(RouteConstant.CAMERA_LIST_VIEW),
             upperMenuWidget: CameraListWidget(state),
           );
         } else {
