@@ -28,19 +28,19 @@ class _CameraBodyState extends State<CameraBody> {
       builder: (context, state) {
         if (state is GenericInitial) {
           return const GridMenuCustomContainer(
-              menuName: "Camera",
+              menuName: "SECURITY",
               upperMenuWidget: Center(
                 child: SizedBox(),
               ));
         } else if (state is GenericLoading) {
           return const GridMenuCustomContainer(
-              menuName: "Camera",
+              menuName: "SECURITY",
               upperMenuWidget: Center(
                   child:
                       CircularProgressIndicator(color: AppColors.purpleColor)));
         } else if (state is GenericCompletedList<CameraModel>) {
           return GridMenuCustomContainer(
-            menuName: "Camera",
+            menuName: "SECURITY",
             upperMenuWidget: CameraListWidget(state),
           );
         } else {
