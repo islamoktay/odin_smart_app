@@ -6,8 +6,7 @@ import '../../../../_feature_exports.dart';
 
 abstract class PowerRepository {
   Future<PowerModel> getInfo();
-  Future<PowerModel> updatePower(List<bool> list);
-  Future<PowerModel> updateMain(List<bool> list);
+  Future<PowerModel> updatePower(bool item);
 }
 
 class SamplePowerRepository implements PowerRepository {
@@ -29,26 +28,8 @@ class SamplePowerRepository implements PowerRepository {
   }
 
   @override
-  Future<PowerModel> updatePower(List<bool> list) async {
-    String json =
-        '{"isPower":${list[0]},"refrigirator":{"isPower":${list[1]},"isMain":true},"fridge":{"isPower":${list[2]},"isMain":true},"television":{"isPower":${list[3]},"isMain":true},"lightbulbs":{"isPower":${list[4]},"isMain":true},"plugs":{"isPower":${list[5]},"isMain":true}}';
-
-    final response = await http.patch(
-      Uri.parse(UrlConstant.POWER_URL),
-      body: json,
-    );
-    if (response.statusCode == 200) {
-      final jsonBody = jsonDecode(response.body);
-      PowerModel responseModel = PowerModel.fromMap(jsonBody);
-      return responseModel;
-    }
-    throw NetworkError(response.statusCode.toString(), response.body);
-  }
-
-  @override
-  Future<PowerModel> updateMain(List<bool> list) async {
-    String json =
-        '{"isPower":false,"refrigirator":{"isPower":false,"isMain":${list[0]}},"fridge":{"isPower":false,"isMain":${list[1]}},"television":{"isPower":false,"isMain":${list[2]}},"lightbulbs":{"isPower":false,"isMain":${list[3]}},"plugs":{"isPower":false,"isMain":${list[4]}}}';
+  Future<PowerModel> updatePower(bool item) async {
+    String json = '{"isPower":$item}';
 
     final response = await http.patch(
       Uri.parse(UrlConstant.POWER_URL),

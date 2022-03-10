@@ -9,4 +9,5 @@ class RouteConstant {
   static const CHANGE_PASSWORD_VIEW = '/changePasswordView';
   static const REMOTE_CONTROLLER_VIEW = '/remoteControllerView';
   static const LIGHT_VIEW = '/lightView';
+  static const POWER_DETAIL_VIEW = '/powerDetailView';
 }

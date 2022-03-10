@@ -47,27 +47,7 @@
         ]
     },
     "power": {
-        "isPower": false,
-        "refrigirator": {
-            "isPower": false,
-            "isMain": true
-        },
-        "fridge": {
-            "isPower": false,
-            "isMain": true
-        },
-        "television": {
-            "isPower": false,
-            "isMain": true
-        },
-        "lightbulbs": {
-            "isPower": false,
-            "isMain": true
-        },
-        "plugs": {
-            "isPower": false,
-            "isMain": true
-        }
+        "isPower": false
     },
     "car": {
         "battery": 97,

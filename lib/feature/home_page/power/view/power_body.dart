@@ -40,6 +40,7 @@ class _PowerBodyState extends State<PowerBody> {
         } else if (state is GenericCompletedItem) {
           return GridMenuCustomContainer(
             menuName: "POWER",
+            onTap: () => Go.to.page(RouteConstant.POWER_DETAIL_VIEW),
             upperMenuWidget: PowerIconWidget(state),
           );
         } else {

@@ -11,7 +11,10 @@ class PowerIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.read<PowerCubit>().clickIconMethod(0),
+      onTap: () {
+        state.response.isPower = !state.response.isPower;
+        context.read<PowerCubit>().updatePower(state.response.isPower);
+      },
       child: Center(
         child: Icon(
           Icons.power_settings_new,

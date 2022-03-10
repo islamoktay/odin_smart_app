@@ -26,8 +26,8 @@ class _GridMenuBodyState extends State<GridMenuBody> {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio: 1,
-              crossAxisSpacing: 35,
-              mainAxisSpacing: 40,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
             ),
             itemBuilder: (context, index) {
               return context.watch<HomePageCubit>().homePageGridBodyList[index];
