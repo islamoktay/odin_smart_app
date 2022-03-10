@@ -14,7 +14,7 @@ class CarDetailPage extends StatefulWidget {
 class _CarDetailPageState extends State<CarDetailPage> {
   @override
   void initState() {
-    Future.delayed( const Duration(seconds: 3)).then((value) {
+    Future.delayed(const Duration(seconds: 5)).then((value) {
       if (!mounted) {
         setState(() {});
       }
@@ -29,31 +29,26 @@ class _CarDetailPageState extends State<CarDetailPage> {
       padding: PaddingConstants.generalPagePadding,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            color: AppColors.secondaryColor,
-            borderRadius: BorderRadius.circular(5)),
+        decoration: BoxDecoration(color: AppColors.secondaryColor, borderRadius: BorderRadius.circular(5)),
         child: BlocConsumer<CarCubit, GenericState>(
           listener: (context, state) {},
           builder: (context, state) {
             if (state is GenericCompletedItem<CarModel>) {
-              context.read<CarDetailCubit>().markerAdderMethod(state);
+              context.read<CarDetailCubit>().markerAdderMethod(state.response, context.watch<CarDetailCubit>().markers);
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CarDetailInfoBody(state),
                   SizedBox(
-                    height: 540,
+                    height: 500,
                     width: 400,
                     child: GoogleMap(
                         markers: context.watch<CarDetailCubit>().markers,
                         mapType: MapType.normal,
                         myLocationButtonEnabled: false,
-                        onMapCreated:
-                            context.watch<CarDetailCubit>().onMapCreated,
-                        initialCameraPosition: CameraPosition(
-                            target: LatLng(
-                                state.response.lat!, state.response.lon!),
-                            zoom: 15)),
+                        onMapCreated: context.watch<CarDetailCubit>().onMapCreated,
+                        initialCameraPosition:
+                            CameraPosition(target: LatLng(state.response.lat!, state.response.lon!), zoom: 15)),
                   )
                 ],
               );

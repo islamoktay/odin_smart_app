@@ -9,3 +9,6 @@ export 'package:geolocator/geolocator.dart';
 export 'dart:async';
 export 'package:google_maps_flutter/google_maps_flutter.dart';
 export 'package:youtube_player_flutter/youtube_player_flutter.dart';
+export 'package:flutter_test/flutter_test.dart';
+export 'package:mockito/mockito.dart';
+export 'package:mockito/annotations.dart';

@@ -50,8 +50,7 @@ class AppTextFormField extends StatelessWidget {
     this.textLimit,
     this.focusNode,
     this.radius = 8,
-    this.toolbarOptions = const ToolbarOptions(
-        cut: true, copy: true, selectAll: true, paste: true),
+    this.toolbarOptions = const ToolbarOptions(cut: true, copy: true, selectAll: true, paste: true),
     this.autoFocus = false,
     this.autovalidateMode,
   });
@@ -93,13 +92,11 @@ class AppTextFormField extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(radius ?? 2)),
             borderSide: const BorderSide(
-              color: AppColors.appBarColor,
+              color: Colors.black,
             ),
           ),
           prefixIcon: icon,
-          suffixIcon: suffix != null
-              ? Align(alignment: Alignment.center, child: suffix!)
-              : null,
+          suffixIcon: suffix != null ? Align(alignment: Alignment.center, child: suffix!) : null,
           suffixIconConstraints: const BoxConstraints(
             maxHeight: 20,
             minHeight: 20,

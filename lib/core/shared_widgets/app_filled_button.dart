@@ -48,7 +48,7 @@ class AppFilledButton extends StatelessWidget {
           ),
         ),
         elevation: 0,
-        shadowColor: shadowColor ?? AppColors.greenColor,
+        shadowColor: shadowColor ?? Colors.green,
       ),
     );
   }
