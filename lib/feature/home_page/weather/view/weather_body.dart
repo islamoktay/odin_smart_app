@@ -43,6 +43,7 @@ class _WeatherBodyState extends State<WeatherBody> {
         } else if (state is GenericCompletedItem) {
           return GridMenuCustomContainer(
             menuName: "WEATHER",
+            onTap: () => Go.to.page(RouteConstant.WEATHER_DETAIL_VIEW),
             upperMenuWidget: LocationService.isEnabled
                 ? WeatherDataBody(state)
                 : const Center(
