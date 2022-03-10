@@ -21,6 +21,7 @@ dependencies:
   google_fonts: ^2.3.1
   google_maps_flutter: ^2.1.2
   http: ^0.13.4
+  youtube_player_flutter: ^8.0.0
 
 dev_dependencies:
   flutter_lints: ^1.0.0

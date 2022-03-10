@@ -11,4 +11,6 @@ class RouteConstant {
   static const LIGHT_VIEW = '/lightView';
   static const WEATHER_DETAIL_VIEW = '/weatherDetailView';
   static const CAR_DETAIL_VIEW = '/carDetailView';
+  static const CAMERA_LIST_VIEW = '/cameraListView';
+  static const CAMERA_DETAIL_VIEW = '/cameraDetailView';
 }
