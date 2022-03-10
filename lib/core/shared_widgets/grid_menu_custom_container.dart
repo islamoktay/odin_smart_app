@@ -34,7 +34,7 @@ class _GridMenuCustomContainerState extends State<GridMenuCustomContainer> {
           Padding(
             padding: const EdgeInsets.only(left: 10.0, right: 10, top: 15),
             child: SizedBox(
-              height: 75,
+              height: 90,
               child: widget.upperMenuWidget,
             ),
           ),
