@@ -14,7 +14,7 @@ class CarDetailPage extends StatefulWidget {
 class _CarDetailPageState extends State<CarDetailPage> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 3)).then((value) {
+    Future.delayed( const Duration(seconds: 3)).then((value) {
       if (!mounted) {
         setState(() {});
       }

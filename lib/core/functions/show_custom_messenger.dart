@@ -11,7 +11,7 @@ void showCustomMessenger(String content) {
       margin: const EdgeInsets.only(bottom: 64),
       backgroundColor: Colors.transparent,
       content: Container(
-        height: 20,
+        height: 30,
         width: 100,
         color: Colors.grey,
         child: Text(content),

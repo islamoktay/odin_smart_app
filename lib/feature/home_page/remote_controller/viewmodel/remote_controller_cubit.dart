@@ -19,7 +19,7 @@ class RemoteControllerCubit extends Cubit<GenericState> {
   }
 
   Future<void> dataController(RemoteControllerModel response) async {
-    Future.delayed(const Duration(seconds: 100)).then((value) async {
+    Future.delayed(const Duration(seconds: 5)).then((value) async {
       final responseNew = await _remoteControllerRepository.getInfo();
       if (response.tvProgram != responseNew.tvProgram ||
           response.tvChannel != responseNew.tvChannel) {

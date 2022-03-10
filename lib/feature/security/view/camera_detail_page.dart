@@ -1,9 +1,10 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
-import 'package:odin_smart_app/core/shared_widgets/app_text.dart';
-import 'package:odin_smart_app/core/shared_widgets/custom_scaffold.dart';
-import 'package:odin_smart_app/core/theme/_theme_exports.dart';
+
 import 'package:odin_smart_app/feature/home_page/camera/_camera_exports.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import '../../../core/_core_exports.dart';
+import '../../../core/_package_exports.dart';
 
 class CameraDetailPage extends StatefulWidget {
   final CameraModel cameraModel;
