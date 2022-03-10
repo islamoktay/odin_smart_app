@@ -23,6 +23,8 @@ class AppRouter {
             builder: (_) => const RemoteControllerDetailPage());
       case RouteConstant.LIGHT_VIEW:
         return CupertinoPageRoute(builder: (_) => const LightDetailPage());
+      case RouteConstant.WEATHER_DETAIL_VIEW:
+        return CupertinoPageRoute(builder: (_) => const WeatherDetailPage());
       default:
         return null;
     }
