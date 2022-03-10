@@ -7,3 +7,4 @@ export 'package:firebase_auth/firebase_auth.dart';
 export 'package:get_it/get_it.dart';
 export 'package:geolocator/geolocator.dart';
 export 'dart:async';
+export 'package:google_maps_flutter/google_maps_flutter.dart';

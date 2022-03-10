@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:odin_smart_app/core/shared_widgets/custom_scaffold.dart';
-import 'package:odin_smart_app/core/theme/_theme_exports.dart';
 
 import '../../../core/_core_exports.dart';
 import '../../../core/_package_exports.dart';
@@ -15,6 +13,16 @@ class CarDetailPage extends StatefulWidget {
 
 class _CarDetailPageState extends State<CarDetailPage> {
   @override
+  void initState() {
+    Future.delayed(Duration(seconds: 3)).then((value) {
+      if (!mounted) {
+        setState(() {});
+      }
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return CustomScaffold(
         body: Padding(
@@ -28,39 +36,25 @@ class _CarDetailPageState extends State<CarDetailPage> {
           listener: (context, state) {},
           builder: (context, state) {
             if (state is GenericCompletedItem<CarModel>) {
+              context.read<CarDetailCubit>().markerAdderMethod(state);
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: AppTextWidget(
-                      "Battery : %${state.response.battery}",
-                      textSize: 20,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: AppTextWidget(
-                      "Location : ${state.response.region}/${state.response.city}",
-                      textSize: 20,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(
-                        children: [
-                          Image.asset(ImageConstants.my_location),
-                          const SizedBox(width: 10),
-                          AppTextWidget(": Car"),
-                          const Spacer(),
-                          Image.asset(ImageConstants.station_location),
-                          const SizedBox(width: 10),
-                          AppTextWidget(": Charge Stations"),
-                        ],
-                      )),
+                  CarDetailInfoBody(state),
+                  SizedBox(
+                    height: 540,
+                    width: 400,
+                    child: GoogleMap(
+                        markers: context.watch<CarDetailCubit>().markers,
+                        mapType: MapType.normal,
+                        myLocationButtonEnabled: false,
+                        onMapCreated:
+                            context.watch<CarDetailCubit>().onMapCreated,
+                        initialCameraPosition: CameraPosition(
+                            target: LatLng(
+                                state.response.lat!, state.response.lon!),
+                            zoom: 15)),
+                  )
                 ],
               );
             } else {
