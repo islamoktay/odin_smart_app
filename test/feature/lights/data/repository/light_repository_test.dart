@@ -1,6 +1,4 @@
 // ignore_for_file: library_prefixes
-
-import 'package:odin_smart_app/core/_core_exports.dart';
 import 'package:odin_smart_app/core/_package_exports.dart';
 import 'package:odin_smart_app/feature/_feature_exports.dart';
 import 'package:odin_smart_app/core/utils/_utils_exports.dart'

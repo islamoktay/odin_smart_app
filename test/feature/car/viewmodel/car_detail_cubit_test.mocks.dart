@@ -2,8 +2,6 @@
 // in odin_smart_app/test/feature/car/viewmodel/car_detail_cubit_test.dart.
 // Do not manually edit this file.
 
-// ignore_for_file: override_on_non_overriding_member
-
 import 'dart:async' as _i4;
 import 'dart:typed_data' as _i5;
 
@@ -37,10 +35,6 @@ class MockCarDetailCubit extends _i1.Mock implements _i3.CarDetailCubit {
   }
 
   @override
-  Set<_i2.Marker> get markers =>
-      (super.noSuchMethod(Invocation.getter(#markers),
-          returnValue: <_i2.Marker>{}) as Set<_i2.Marker>);
-  @override
   _i4.Stream<String?> get stream =>
       (super.noSuchMethod(Invocation.getter(#stream),
           returnValue: Stream<String?>.empty()) as _i4.Stream<String?>);
@@ -52,12 +46,6 @@ class MockCarDetailCubit extends _i1.Mock implements _i3.CarDetailCubit {
   void onMapCreated(_i2.GoogleMapController? controller) =>
       super.noSuchMethod(Invocation.method(#onMapCreated, [controller]),
           returnValueForMissingStub: null);
-  @override
-  _i4.Future<bool> markerAdderMethod(
-          _i3.CarModel? response, Set<_i2.Marker>? markers) =>
-      (super.noSuchMethod(
-          Invocation.method(#markerAdderMethod, [response, markers]),
-          returnValue: Future<bool>.value(false)) as _i4.Future<bool>);
   @override
   void emit(String? state) =>
       super.noSuchMethod(Invocation.method(#emit, [state]),
