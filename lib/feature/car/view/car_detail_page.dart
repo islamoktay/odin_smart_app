@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/_core_exports.dart';
@@ -5,19 +6,20 @@ import '../../../core/_package_exports.dart';
 import '../../_feature_exports.dart';
 
 class CarDetailPage extends StatefulWidget {
-  const CarDetailPage({Key? key}) : super(key: key);
+  final CarModel carModel;
+  const CarDetailPage(this.carModel, {Key? key}) : super(key: key);
 
   @override
   State<CarDetailPage> createState() => _CarDetailPageState();
 }
 
 class _CarDetailPageState extends State<CarDetailPage> {
+  Set<Marker> markers = {};
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 5)).then((value) {
-      if (!mounted) {
-        setState(() {});
-      }
+    compute(CarDetailCubit.markerAdderMethod, widget.carModel).then((value) {
+      markers = value;
+      setState(() {});
     });
     super.initState();
   }
@@ -34,7 +36,6 @@ class _CarDetailPageState extends State<CarDetailPage> {
           listener: (context, state) {},
           builder: (context, state) {
             if (state is GenericCompletedItem<CarModel>) {
-              context.read<CarDetailCubit>().markerAdderMethod(state.response, context.watch<CarDetailCubit>().markers);
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -43,10 +44,10 @@ class _CarDetailPageState extends State<CarDetailPage> {
                     height: 500,
                     width: 400,
                     child: GoogleMap(
-                        markers: context.watch<CarDetailCubit>().markers,
+                        markers: markers,
                         mapType: MapType.normal,
                         myLocationButtonEnabled: false,
-                        onMapCreated: context.watch<CarDetailCubit>().onMapCreated,
+                        onMapCreated: CarDetailCubit().onMapCreated,
                         initialCameraPosition:
                             CameraPosition(target: LatLng(state.response.lat!, state.response.lon!), zoom: 15)),
                   )

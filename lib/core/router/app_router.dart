@@ -19,21 +19,21 @@ class AppRouter {
       case RouteConstant.CHANGE_PASSWORD_VIEW:
         return CupertinoPageRoute(builder: (_) => const ChangePassword());
       case RouteConstant.REMOTE_CONTROLLER_VIEW:
-        return CupertinoPageRoute(
-            builder: (_) => const RemoteControllerDetailPage());
+        return CupertinoPageRoute(builder: (_) => const RemoteControllerDetailPage());
       case RouteConstant.LIGHT_VIEW:
         return CupertinoPageRoute(builder: (_) => const LightDetailPage());
       case RouteConstant.WEATHER_DETAIL_VIEW:
         return CupertinoPageRoute(builder: (_) => const WeatherDetailPage());
       case RouteConstant.CAR_DETAIL_VIEW:
-        return CupertinoPageRoute(builder: (_) => const CarDetailPage());
+        final CarModel argument = routeSettings.arguments as CarModel;
+
+        return CupertinoPageRoute(builder: (_) => CarDetailPage(argument));
       case RouteConstant.CAMERA_LIST_VIEW:
         return CupertinoPageRoute(builder: (_) => const CameraListPage());
       case RouteConstant.CAMERA_DETAIL_VIEW:
         final CameraModel argument = routeSettings.arguments as CameraModel;
 
-        return CupertinoPageRoute(
-            builder: (_) => CameraDetailPage(cameraModel: argument));
+        return CupertinoPageRoute(builder: (_) => CameraDetailPage(cameraModel: argument));
       default:
         return CupertinoPageRoute(builder: (_) => const HomePage());
     }

@@ -20,8 +20,7 @@ class SampleCameraRepository implements CameraRepository {
     );
     if (response.statusCode == 200) {
       final jsonBody = jsonDecode(utf8.decode(response.bodyBytes));
-      List<CameraModel> responseModel = List<CameraModel>.from(
-          jsonBody.map((model) => CameraModel.fromMap(model)));
+      List<CameraModel> responseModel = List<CameraModel>.from(jsonBody.map((model) => CameraModel.fromMap(model)));
 
       return responseModel;
     }

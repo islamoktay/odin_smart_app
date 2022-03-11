@@ -35,9 +35,7 @@ class _CameraBodyState extends State<CameraBody> {
         } else if (state is GenericLoading) {
           return const GridMenuCustomContainer(
               menuName: "SECURITY",
-              upperMenuWidget: Center(
-                  child:
-                      CircularProgressIndicator(color: AppColors.purpleColor)));
+              upperMenuWidget: Center(child: CircularProgressIndicator(color: AppColors.purpleColor)));
         } else if (state is GenericCompletedList<CameraModel>) {
           return GridMenuCustomContainer(
             menuName: "SECURITY",

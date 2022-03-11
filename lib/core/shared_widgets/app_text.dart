@@ -12,8 +12,7 @@ class AppTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style:
-          AppTextStyles.bodyTextStyleWhite.copyWith(fontSize: textSize ?? 14),
+      style: AppTextStyles.bodyTextStyleWhite.copyWith(fontSize: textSize ?? 14),
       overflow: TextOverflow.fade,
     );
   }
