@@ -11,7 +11,7 @@ class LightModel {
     required this.ligtsDevices,
   });
 
-  late List<LigtsDevice> ligtsDevices;
+  List<LigtsDevice>? ligtsDevices;
 
   factory LightModel.fromJson(String str) =>
       LightModel.fromMap(json.decode(str));
@@ -24,7 +24,8 @@ class LightModel {
       );
 
   Map<String, dynamic> toMap() => {
-        "ligts_devices": List<dynamic>.from(ligtsDevices.map((x) => x.toMap())),
+        "ligts_devices":
+            List<dynamic>.from(ligtsDevices!.map((x) => x.toMap())),
       };
 }
 

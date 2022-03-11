@@ -2,6 +2,8 @@
 // in odin_smart_app/test/feature/car/viewmodel/car_detail_cubit_test.dart.
 // Do not manually edit this file.
 
+// ignore_for_file: override_on_non_overriding_member
+
 import 'dart:async' as _i4;
 import 'dart:typed_data' as _i5;
 

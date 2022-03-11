@@ -12,13 +12,13 @@ class LightsListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: state.response.ligtsDevices.length,
+      itemCount: state.response.ligtsDevices!.length,
       itemBuilder: ((context, index) {
         return CustomCheckBox(
-          isLightOpen: state.response.ligtsDevices[index].isOpen!,
+          isLightOpen: state.response.ligtsDevices![index].isOpen!,
           onChanged: (value) =>
               context.read<LightsCubit>().clickButtonMethod(value!, index),
-          name: state.response.ligtsDevices[index].name!,
+          name: state.response.ligtsDevices![index].name!,
         );
       }),
     );
