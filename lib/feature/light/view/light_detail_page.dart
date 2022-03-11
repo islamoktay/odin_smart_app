@@ -14,9 +14,7 @@ class LightDetailPage extends StatefulWidget {
 class _LightDetailPageState extends State<LightDetailPage> {
   @override
   void initState() {
-    context
-        .read<LevelOfOpenListCubit>()
-        .setList(sl<LightsCubit>().levelOfOpenList);
+    context.read<LevelOfOpenListCubit>().setList(sl<LightsCubit>().levelOfOpenList);
     super.initState();
   }
 
@@ -56,24 +54,26 @@ class _LightDetailPageState extends State<LightDetailPage> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * .3,
                           child: AppTextFormField(
-                            controller: sl<LightDetailPageCubit>()
-                                .controllerDecider(index)[0],
-                            hintText: sl<LightDetailPageCubit>()
-                                .generateHintTextForOpenTime(state, index),
+                            textLimit: 4,
+                            keyboardType: TextInputType.number,
+                            controller: sl<LightDetailPageCubit>().controllerDecider(index)[0],
+                            hintText: sl<LightDetailPageCubit>().generateHintTextForOpenTime(state, index),
                           ),
                         ),
                         SizedBox(
                             width: MediaQuery.of(context).size.width * .3,
                             child: AppTextFormField(
-                              controller: sl<LightDetailPageCubit>()
-                                  .controllerDecider(index)[1],
-                              hintText: sl<LightDetailPageCubit>()
-                                  .generateHintTextForCloseTime(state, index),
+                              onFieldComplete: () {
+                                sl<LightDetailPageCubit>().controllerDecider(index)[1].text =
+                                    "${sl<LightDetailPageCubit>().controllerDecider(index)[1].text.substring(0, 2)} : ${sl<LightDetailPageCubit>().controllerDecider(index)[1].text.substring(2)}";
+                              },
+                              textLimit: 4,
+                              keyboardType: TextInputType.number,
+                              controller: sl<LightDetailPageCubit>().controllerDecider(index)[1],
+                              hintText: sl<LightDetailPageCubit>().generateHintTextForCloseTime(state, index),
                             )),
                         GestureDetector(
-                          onTap: () => context
-                              .read<LightDetailPageCubit>()
-                              .onApplyButtonPressed(index),
+                          onTap: () => context.read<LightDetailPageCubit>().onApplyButtonPressed(index),
                           child: const Icon(
                             Icons.check_circle,
                             size: 30,
@@ -82,9 +82,7 @@ class _LightDetailPageState extends State<LightDetailPage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            context
-                                .read<LightDetailPageCubit>()
-                                .onCancelButtonPressed(index, state);
+                            context.read<LightDetailPageCubit>().onCancelButtonPressed(index, state);
                             setState(() {});
                           },
                           child: const Icon(
@@ -104,8 +102,7 @@ class _LightDetailPageState extends State<LightDetailPage> {
                           inactiveColor: Colors.white,
                           thumbColor: AppColors.purpleColor,
                           onChangeEnd: (value) {
-                            sl<LightModel>().ligtsDevices[index].levelOfOpen =
-                                double.parse(value.toStringAsFixed(2));
+                            sl<LightModel>().ligtsDevices[index].levelOfOpen = double.parse(value.toStringAsFixed(2));
                             sl<SampleLightsRepository>().updateInfoForAll();
                           },
                           onChangeStart: (value) {

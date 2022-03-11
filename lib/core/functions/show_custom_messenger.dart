@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import '../_core_exports.dart';
 
 void showCustomMessenger(String content) {
-  ScaffoldMessenger.of(GlobalContextKey.instance.globalKey.currentContext!)
-      .showSnackBar(
+  ScaffoldMessenger.of(GlobalContextKey.instance.globalKey.currentContext!).showSnackBar(
     SnackBar(
       margin: const EdgeInsets.only(bottom: 64),
       backgroundColor: Colors.transparent,

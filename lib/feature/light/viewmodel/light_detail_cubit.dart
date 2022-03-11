@@ -8,10 +8,8 @@ class LightDetailPageCubit extends Cubit<String> {
   LightDetailPageCubit() : super("");
 
   void onApplyButtonPressed(int index) {
-    sl<LightModel>().ligtsDevices[index].closeTime =
-        sl<LightDetailPageCubit>().controllerDecider(index)[0].text;
-    sl<LightModel>().ligtsDevices[index].openTime =
-        sl<LightDetailPageCubit>().controllerDecider(index)[1].text;
+    sl<LightModel>().ligtsDevices[index].closeTime = sl<LightDetailPageCubit>().controllerDecider(index)[0].text;
+    sl<LightModel>().ligtsDevices[index].openTime = sl<LightDetailPageCubit>().controllerDecider(index)[1].text;
     sl<SampleLightsRepository>().updateInfoForAll();
   }
 
@@ -28,24 +26,19 @@ class LightDetailPageCubit extends Cubit<String> {
     sl<SampleLightsRepository>().updateInfoForAll();
   }
 
-  List<TextEditingController> textEditingController = List.generate(
-      (sl<LightsCubit>().levelOfOpenList.length * 2),
-      (index) => TextEditingController());
+  List<TextEditingController> textEditingController =
+      List.generate((sl<LightsCubit>().levelOfOpenList.length * 2), (index) => TextEditingController());
 
-  String generateHintTextForOpenTime(
-      GenericCompletedItem<LightModel> state, int index) {
-    if (state.response.ligtsDevices[index].openTime == null ||
-        state.response.ligtsDevices[index].openTime == "") {
+  String generateHintTextForOpenTime(GenericCompletedItem<LightModel> state, int index) {
+    if (state.response.ligtsDevices[index].openTime == null || state.response.ligtsDevices[index].openTime == "") {
       return "Start Time";
     } else {
       return "${state.response.ligtsDevices[index].openTime!.substring(0, 2)} : ${state.response.ligtsDevices[index].openTime!.substring(2)}";
     }
   }
 
-  String generateHintTextForCloseTime(
-      GenericCompletedItem<LightModel> state, int index) {
-    if (state.response.ligtsDevices[index].closeTime == null ||
-        state.response.ligtsDevices[index].closeTime == "") {
+  String generateHintTextForCloseTime(GenericCompletedItem<LightModel> state, int index) {
+    if (state.response.ligtsDevices[index].closeTime == null || state.response.ligtsDevices[index].closeTime == "") {
       return "End Time";
     } else {
       return "${state.response.ligtsDevices[index].closeTime!.substring(0, 2)} : ${state.response.ligtsDevices[index].closeTime!.substring(2)}";

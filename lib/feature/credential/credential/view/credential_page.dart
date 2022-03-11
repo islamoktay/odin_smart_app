@@ -10,8 +10,7 @@ class CredentialPage extends StatefulWidget {
   _CredentialPageState createState() => _CredentialPageState();
 }
 
-class _CredentialPageState extends State<CredentialPage>
-    with SingleTickerProviderStateMixin {
+class _CredentialPageState extends State<CredentialPage> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -26,48 +25,48 @@ class _CredentialPageState extends State<CredentialPage>
     return Scaffold(
       body: Padding(
         padding: PaddingConstants.generalPagePadding,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 30),
-            SizedBox(
-              height: 200,
-              width: 200,
-              child: Image.asset(ImageConstants.iconLogo),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-                height: 84,
-                width: 194,
-                child: Image.asset(ImageConstants.textLogo)),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 50,
-              child: TabBar(
-                controller: _tabController,
-                unselectedLabelColor: AppColors.purpleColor,
-                labelColor: AppColors.secondaryColor,
-                labelStyle: AppTextStyles.bodyTextStyleWhite,
-                tabs: const [
-                  Tab(
-                    text: "Login",
-                  ),
-                  Tab(
-                    text: "Sign Up",
-                  ),
-                ],
+        child: SingleChildScrollView(
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 30),
+              SizedBox(
+                height: 200,
+                width: 200,
+                child: Image.asset(ImageConstants.iconLogo),
               ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 300,
-              child: TabBarView(
-                controller: _tabController,
-                children: const [LoginBody(), SignUpBody()],
+              const SizedBox(height: 20),
+              SizedBox(height: 84, width: 194, child: Image.asset(ImageConstants.textLogo)),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 50,
+                child: TabBar(
+                  controller: _tabController,
+                  unselectedLabelColor: AppColors.purpleColor,
+                  labelColor: AppColors.secondaryColor,
+                  labelStyle: AppTextStyles.bodyTextStyleWhite,
+                  tabs: const [
+                    Tab(
+                      text: "Login",
+                    ),
+                    Tab(
+                      text: "Sign Up",
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 300,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: const [LoginBody(), SignUpBody()],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
